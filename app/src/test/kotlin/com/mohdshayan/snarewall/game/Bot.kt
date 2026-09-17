@@ -5,10 +5,19 @@ package com.mohdshayan.snarewall.game
  * playable. It builds a serpentine of walls, then buys traps in a fixed cycle near the keep first.
  * It never uses a rule the player cannot: every move goes through the public Sim API.
  */
-class Bot(private val sim: Sim, private val thick: Boolean, private val wallShare: Float = 0.5f) {
+class Bot(
+    private val sim: Sim,
+    private val thick: Boolean,
+    private val wallShare: Float = 0.5f,
+    /** Non zero picks tiles at random among the legal ones instead of the best ones: a careless player. */
+    private val seed: Long = 0L,
+    /** False never buys an upgrade, so a sweep can price upgrading against buying another trap. */
+    private val upgrades: Boolean = true,
+) {
 
     val actions = ArrayList<RefAction>()
     private var purchases = 0
+    private val rng = if (seed != 0L) Rng(seed) else null
 
     private val cycle = listOf(
         TrapKind.DART, TrapKind.GRINDER, TrapKind.SPIKE, TrapKind.HAMMER, TrapKind.FROST,
@@ -61,6 +70,7 @@ class Bot(private val sim: Sim, private val thick: Boolean, private val wallShar
     }
 
     private fun tryUpgrade(): Boolean {
+        if (!upgrades) return false
         val order = sim.traps.sortedWith(compareBy({ it.upgraded }, { -sim.trapCost(it.kind) }, { it.tile }))
         for (t in order) {
             if (t.upgraded || t.kind == TrapKind.OIL || t.kind == TrapKind.PUSHER) continue
@@ -102,6 +112,7 @@ class Bot(private val sim: Sim, private val thick: Boolean, private val wallShar
         if (kind.wallMounted) {
             val walls = (0 until Grid.N).filter { sim.walls[it] && sim.trapAt[it] < 0 && sim.trapError(kind, it) == null }
             if (walls.isEmpty()) return -1
+            rng?.let { return walls[it.nextInt(walls.size)] }
             return when (kind) {
                 TrapKind.DART -> walls.maxWithOrNull(compareBy<Int> { coverage(it) }.thenBy { -it }) ?: -1
                 else -> walls.minWithOrNull(compareBy<Int> { faceDist(kind, it) }.thenBy { it }) ?: -1
@@ -109,6 +120,7 @@ class Bot(private val sim: Sim, private val thick: Boolean, private val wallShar
         }
         val route = routeTiles().filter { sim.trapError(kind, it) == null }
         if (route.isEmpty()) return -1
+        rng?.let { return route[it.nextInt(route.size)] }
         val partner = when (kind) {
             TrapKind.FROST -> sim.traps.filter { it.kind == TrapKind.HAMMER }.map { it.target }
             TrapKind.OIL -> sim.traps.filter { it.kind == TrapKind.EMBER }.map { it.tile }

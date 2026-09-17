@@ -16,7 +16,7 @@
         "........",
         "...K...."
     ],
-    "startCoin": 42,
+    "startCoin": 51,
     "traps": [
         "spike",
         "snare"
@@ -26,7 +26,7 @@
     ],
     "waves": [
         {
-            "hp": 0.62,
+            "hp": 0.52,
             "groups": [
                 {
                     "enemy": "raider",
@@ -38,7 +38,7 @@
             ]
         },
         {
-            "hp": 0.68,
+            "hp": 0.58,
             "groups": [
                 {
                     "enemy": "raider",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "hp": 0.74,
+            "hp": 0.63,
             "groups": [
                 {
                     "enemy": "raider",
@@ -69,7 +69,7 @@
             ]
         },
         {
-            "hp": 0.8,
+            "hp": 0.68,
             "groups": [
                 {
                     "enemy": "runner",
@@ -88,7 +88,7 @@
             ]
         },
         {
-            "hp": 0.87,
+            "hp": 0.74,
             "groups": [
                 {
                     "enemy": "runner",
@@ -100,7 +100,7 @@
             ]
         },
         {
-            "hp": 0.93,
+            "hp": 0.79,
             "groups": [
                 {
                     "enemy": "raider",
@@ -119,7 +119,7 @@
             ]
         },
         {
-            "hp": 0.99,
+            "hp": 0.84,
             "groups": [
                 {
                     "enemy": "runner",
@@ -139,17 +139,17 @@
         }
     ],
     "par": {
-        "warden": {
-            "silver": 1250,
-            "gold": 1580
+        "iron": {
+            "silver": 1160,
+            "gold": 1410
         },
         "standard": {
-            "silver": 1250,
-            "gold": 1580
+            "silver": 1230,
+            "gold": 1530
         },
-        "iron": {
-            "silver": 1070,
-            "gold": 1350
+        "warden": {
+            "silver": 1150,
+            "gold": 1450
         }
     }
 }

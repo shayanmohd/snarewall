@@ -213,24 +213,27 @@ class ShotSeeds {
             if (addPushDeadfall(sim)) sim.also { println("combo on level $id wave ${w + 1}") } else null
         }
         write("seed-2-combo", s2.snapshot())
-        // 3: diggers and jumpers against a maze. Played, not edited: a thin serpentine bot plays Pillar Hall
+        // 3: diggers and jumpers against a maze. Played, not edited: a thin serpentine bot plays the level
         // on Standard through the real Sim, wave by wave, and the save is its own build-phase snapshot at the
-        // start of the first wave that sends both diggers and jumpers.
-        val lv7 = content.level(7)!!
-        val w3 = lv7.waves.indices.first { i -> lv7.waves[i].groups.map { it.enemy }.let { "digger" in it && "jumper" in it } }
-        val thin = Sim(RunSpec.forLevel(lv7, Difficulty.STANDARD), content)
+        // start of the first wave that sends both diggers and jumpers. The level is looked up rather than
+        // named, so the caption stays true whatever the level line-ups are.
+        val (lvD, w3) = content.levels.firstNotNullOf { lv ->
+            lv.waves.indices.firstOrNull { i -> lv.waves[i].groups.map { it.enemy }.let { "digger" in it && "jumper" in it } }
+                ?.let { lv to it }
+        }
+        val thin = Sim(RunSpec.forLevel(lvD, Difficulty.STANDARD), content)
         val player = Bot(thin, thick = false, wallShare = 0.5f)
         while (thin.waveIndex < w3) {
             player.playBuildPhase()
             check(thin.sendWave())
             TestContent.runWave(thin)
-            check(thin.phase == Phase.BUILD) { "the thin maze lost level 7 before wave ${w3 + 1}" }
+            check(thin.phase == Phase.BUILD) { "the thin maze lost level ${lvD.id} before wave ${w3 + 1}" }
         }
         player.playBuildPhase()
         val s3 = thin.snapshot()
-        Sim(RunSpec.forLevel(lv7, Difficulty.STANDARD), content).restore(s3)
+        Sim(RunSpec.forLevel(lvD, Difficulty.STANDARD), content).restore(s3)
         write("seed-3-diggers", s3)
-        println("level 7 wave ${w3 + 1}: ${lv7.waves[w3].groups.map { "${it.count} ${it.enemy} delay ${it.delay}" }}")
+        println("level ${lvD.id} wave ${w3 + 1}: ${lvD.waves[w3].groups.map { "${it.count} ${it.enemy} delay ${it.delay}" }}")
         // 5: Fen Causeway, oil and ember.
         val s5 = reach(11, 5, withBuild = false)
         println("s5 coin ${s5.coin}")

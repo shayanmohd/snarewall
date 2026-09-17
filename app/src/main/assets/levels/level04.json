@@ -30,7 +30,7 @@
     ],
     "waves": [
         {
-            "hp": 0.42,
+            "hp": 0.39,
             "groups": [
                 {
                     "enemy": "raider",
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "hp": 0.46,
+            "hp": 0.43,
             "groups": [
                 {
                     "enemy": "raider",
@@ -61,7 +61,7 @@
             ]
         },
         {
-            "hp": 0.51,
+            "hp": 0.47,
             "groups": [
                 {
                     "enemy": "brute",
@@ -73,7 +73,7 @@
             ]
         },
         {
-            "hp": 0.55,
+            "hp": 0.51,
             "groups": [
                 {
                     "enemy": "runner",
@@ -92,7 +92,7 @@
             ]
         },
         {
-            "hp": 0.59,
+            "hp": 0.55,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -104,7 +104,7 @@
             ]
         },
         {
-            "hp": 0.64,
+            "hp": 0.59,
             "groups": [
                 {
                     "enemy": "brute",
@@ -116,7 +116,7 @@
             ]
         },
         {
-            "hp": 0.68,
+            "hp": 0.63,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -135,7 +135,7 @@
             ]
         },
         {
-            "hp": 0.72,
+            "hp": 0.67,
             "groups": [
                 {
                     "enemy": "runner",
@@ -155,17 +155,17 @@
         }
     ],
     "par": {
-        "warden": {
-            "silver": 1330,
-            "gold": 1680
+        "iron": {
+            "silver": 1290,
+            "gold": 1570
         },
         "standard": {
-            "silver": 1330,
-            "gold": 1680
+            "silver": 1310,
+            "gold": 1630
         },
-        "iron": {
-            "silver": 1330,
-            "gold": 1680
+        "warden": {
+            "silver": 1240,
+            "gold": 1560
         }
     }
 }

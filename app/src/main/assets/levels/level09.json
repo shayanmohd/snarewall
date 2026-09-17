@@ -16,7 +16,7 @@
         "........",
         "....K..."
     ],
-    "startCoin": 55,
+    "startCoin": 64,
     "traps": [
         "spike",
         "snare",
@@ -32,7 +32,7 @@
     ],
     "waves": [
         {
-            "hp": 0.82,
+            "hp": 0.64,
             "groups": [
                 {
                     "enemy": "raider",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "hp": 0.91,
+            "hp": 0.71,
             "groups": [
                 {
                     "enemy": "raider",
@@ -63,10 +63,10 @@
             ]
         },
         {
-            "hp": 0.99,
+            "hp": 0.77,
             "groups": [
                 {
-                    "enemy": "sapper",
+                    "enemy": "raider",
                     "count": 11,
                     "gap": 0.9,
                     "delay": 0.0,
@@ -75,13 +75,96 @@
             ]
         },
         {
-            "hp": 1.07,
+            "hp": 0.84,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 12,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 5.3999996,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.9,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 12,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "shieldbearer",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 5.3999996,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.97,
             "groups": [
                 {
                     "enemy": "shieldbearer",
-                    "count": 12,
+                    "count": 7,
                     "gap": 0.9,
                     "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "brute",
+                    "count": 3,
+                    "gap": 1.6,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.03,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 7,
+                    "gap": 0.6,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "swarmling",
+                    "count": 16,
+                    "gap": 0.35,
+                    "delay": 5.4000006,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.1,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 8.4,
                     "gate": -1
                 }
             ]
@@ -90,150 +173,67 @@
             "hp": 1.16,
             "groups": [
                 {
-                    "enemy": "swarmling",
-                    "count": 26,
-                    "gap": 0.35,
-                    "delay": 0.0,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 1.24,
-            "groups": [
-                {
                     "enemy": "digger",
-                    "count": 7,
+                    "count": 5,
                     "gap": 0.9,
                     "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 5,
+                    "gap": 0.6,
+                    "delay": 5.7,
                     "gate": -1
                 },
                 {
                     "enemy": "swarmling",
                     "count": 14,
                     "gap": 0.35,
-                    "delay": 7.5,
+                    "delay": 9.9,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.32,
+            "hp": 1.23,
             "groups": [
                 {
-                    "enemy": "shieldbearer",
-                    "count": 5,
-                    "gap": 0.9,
+                    "enemy": "brute",
+                    "count": 3,
+                    "gap": 1.6,
                     "delay": 0.0,
                     "gate": -1
                 },
                 {
-                    "enemy": "swarmling",
-                    "count": 10,
-                    "gap": 0.35,
-                    "delay": 5.7,
-                    "gate": -1
-                },
-                {
-                    "enemy": "sapper",
-                    "count": 5,
-                    "gap": 0.9,
-                    "delay": 10.4,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 1.41,
-            "groups": [
-                {
-                    "enemy": "shieldbearer",
-                    "count": 5,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "raider",
-                    "count": 5,
-                    "gap": 0.9,
-                    "delay": 5.7,
-                    "gate": -1
-                },
-                {
-                    "enemy": "sapper",
+                    "enemy": "runner",
                     "count": 6,
-                    "gap": 0.9,
-                    "delay": 11.4,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 1.49,
-            "groups": [
-                {
-                    "enemy": "raider",
-                    "count": 5,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "digger",
-                    "count": 5,
-                    "gap": 0.9,
-                    "delay": 5.7,
-                    "gate": -1
-                },
-                {
-                    "enemy": "sapper",
-                    "count": 7,
-                    "gap": 0.9,
-                    "delay": 11.4,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 1.57,
-            "groups": [
-                {
-                    "enemy": "sapper",
-                    "count": 6,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "shieldbearer",
-                    "count": 6,
-                    "gap": 0.9,
-                    "delay": 6.5999994,
+                    "gap": 0.6,
+                    "delay": 6.0,
                     "gate": -1
                 },
                 {
                     "enemy": "digger",
                     "count": 6,
                     "gap": 0.9,
-                    "delay": 13.199999,
+                    "delay": 10.8,
                     "gate": -1
                 }
             ]
         }
     ],
     "par": {
-        "warden": {
-            "silver": 2010,
-            "gold": 2540
+        "iron": {
+            "silver": 1890,
+            "gold": 2310
         },
         "standard": {
-            "silver": 2010,
-            "gold": 2540
+            "silver": 1930,
+            "gold": 2400
         },
-        "iron": {
-            "silver": 2010,
-            "gold": 2540
+        "warden": {
+            "silver": 1830,
+            "gold": 2300
         }
     }
 }

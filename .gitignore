@@ -22,4 +22,5 @@ BLUEPRINT.md
 SHIP-READY.md
 store/smoke-*.png
 app/forge.on
+app/sweep.on
 app/shots.on

@@ -30,7 +30,7 @@
     ],
     "waves": [
         {
-            "hp": 0.44,
+            "hp": 0.59,
             "groups": [
                 {
                     "enemy": "raider",
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "hp": 0.49,
+            "hp": 0.64,
             "groups": [
                 {
                     "enemy": "raider",
@@ -53,7 +53,7 @@
                 },
                 {
                     "enemy": "flyer",
-                    "count": 3,
+                    "count": 2,
                     "gap": 0.9,
                     "delay": 5.7,
                     "gate": -1
@@ -61,89 +61,13 @@
             ]
         },
         {
-            "hp": 0.53,
+            "hp": 0.7,
             "groups": [
                 {
-                    "enemy": "flyer",
-                    "count": 7,
-                    "gap": 0.9,
+                    "enemy": "swarmling",
+                    "count": 22,
+                    "gap": 0.35,
                     "delay": 0.0,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 0.58,
-            "groups": [
-                {
-                    "enemy": "jumper",
-                    "count": 6,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "brute",
-                    "count": 3,
-                    "gap": 1.6,
-                    "delay": 6.5999994,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 0.62,
-            "groups": [
-                {
-                    "enemy": "jumper",
-                    "count": 6,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "raider",
-                    "count": 7,
-                    "gap": 0.9,
-                    "delay": 6.5999994,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 0.67,
-            "groups": [
-                {
-                    "enemy": "runner",
-                    "count": 7,
-                    "gap": 0.6,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "raider",
-                    "count": 7,
-                    "gap": 0.9,
-                    "delay": 5.4000006,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 0.71,
-            "groups": [
-                {
-                    "enemy": "raider",
-                    "count": 7,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "runner",
-                    "count": 8,
-                    "gap": 0.6,
-                    "delay": 7.5,
                     "gate": -1
                 }
             ]
@@ -153,66 +77,121 @@
             "groups": [
                 {
                     "enemy": "flyer",
-                    "count": 3,
+                    "count": 6,
                     "gap": 0.9,
                     "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "brute",
-                    "count": 2,
-                    "gap": 1.6,
-                    "delay": 3.8999999,
-                    "gate": -1
-                },
-                {
-                    "enemy": "runner",
-                    "count": 6,
-                    "gap": 0.6,
-                    "delay": 8.3,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 0.8,
+            "hp": 0.82,
             "groups": [
                 {
-                    "enemy": "flyer",
-                    "count": 3,
+                    "enemy": "jumper",
+                    "count": 6,
                     "gap": 0.9,
                     "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "raider",
-                    "count": 5,
-                    "gap": 0.9,
-                    "delay": 3.8999999,
                     "gate": -1
                 },
                 {
                     "enemy": "runner",
                     "count": 7,
                     "gap": 0.6,
-                    "delay": 9.599999,
+                    "delay": 6.5999994,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.88,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "brute",
+                    "count": 3,
+                    "gap": 1.6,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.94,
+            "groups": [
+                {
+                    "enemy": "jumper",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "flyer",
+                    "count": 2,
+                    "gap": 0.9,
+                    "delay": 5.7,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 5,
+                    "gap": 0.6,
+                    "delay": 8.7,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.0,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "jumper",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 8.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.06,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 17,
+                    "gap": 0.6,
+                    "delay": 0.0,
                     "gate": -1
                 }
             ]
         }
     ],
     "par": {
-        "warden": {
-            "silver": 1450,
-            "gold": 1840
+        "iron": {
+            "silver": 1360,
+            "gold": 1660
         },
         "standard": {
-            "silver": 1450,
-            "gold": 1840
+            "silver": 1510,
+            "gold": 1880
         },
-        "iron": {
-            "silver": 1230,
-            "gold": 1560
+        "warden": {
+            "silver": 1470,
+            "gold": 1850
         }
     }
 }

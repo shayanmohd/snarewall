@@ -34,7 +34,7 @@
     ],
     "waves": [
         {
-            "hp": 0.77,
+            "hp": 0.66,
             "groups": [
                 {
                     "enemy": "raider",
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "hp": 0.85,
+            "hp": 0.72,
             "groups": [
                 {
                     "enemy": "raider",
@@ -65,10 +65,10 @@
             ]
         },
         {
-            "hp": 0.93,
+            "hp": 0.79,
             "groups": [
                 {
-                    "enemy": "frostborn",
+                    "enemy": "raider",
                     "count": 13,
                     "gap": 0.9,
                     "delay": 0.0,
@@ -77,87 +77,68 @@
             ]
         },
         {
-            "hp": 1.01,
+            "hp": 0.86,
             "groups": [
                 {
-                    "enemy": "raider",
+                    "enemy": "jumper",
                     "count": 7,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
                 },
                 {
-                    "enemy": "jumper",
-                    "count": 7,
-                    "gap": 0.9,
+                    "enemy": "brute",
+                    "count": 3,
+                    "gap": 1.6,
                     "delay": 7.5,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.09,
-            "groups": [
-                {
-                    "enemy": "brute",
-                    "count": 3,
-                    "gap": 1.6,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "frostborn",
-                    "count": 8,
-                    "gap": 0.9,
-                    "delay": 6.0,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 1.16,
+            "hp": 0.92,
             "groups": [
                 {
                     "enemy": "raider",
-                    "count": 16,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 1.24,
-            "groups": [
-                {
-                    "enemy": "brute",
-                    "count": 2,
-                    "gap": 1.6,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "jumper",
-                    "count": 5,
-                    "gap": 0.9,
-                    "delay": 4.4,
-                    "gate": -1
-                },
-                {
-                    "enemy": "oilskin",
                     "count": 7,
                     "gap": 0.9,
-                    "delay": 10.1,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "swarmling",
+                    "count": 16,
+                    "gap": 0.35,
+                    "delay": 7.5,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.32,
+            "hp": 0.99,
             "groups": [
                 {
-                    "enemy": "frostborn",
-                    "count": 9,
+                    "enemy": "raider",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "swarmling",
+                    "count": 16,
+                    "gap": 0.35,
+                    "delay": 8.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.06,
+            "groups": [
+                {
+                    "enemy": "oilskin",
+                    "count": 8,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
@@ -166,49 +147,42 @@
                     "enemy": "brute",
                     "count": 4,
                     "gap": 1.6,
-                    "delay": 9.299999,
+                    "delay": 8.4,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.4,
+            "hp": 1.12,
             "groups": [
                 {
-                    "enemy": "frostborn",
+                    "enemy": "swarmling",
+                    "count": 18,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "oilskin",
+                    "count": 9,
+                    "gap": 0.9,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.19,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
                     "count": 6,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
                 },
-                {
-                    "enemy": "brute",
-                    "count": 3,
-                    "gap": 1.6,
-                    "delay": 6.5999994,
-                    "gate": -1
-                },
-                {
-                    "enemy": "raider",
-                    "count": 7,
-                    "gap": 0.9,
-                    "delay": 12.599999,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 1.48,
-            "groups": [
                 {
                     "enemy": "jumper",
-                    "count": 6,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
-                    "enemy": "frostborn",
                     "count": 6,
                     "gap": 0.9,
                     "delay": 6.5999994,
@@ -216,6 +190,32 @@
                 },
                 {
                     "enemy": "oilskin",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 13.199999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.26,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "oilskin",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 6.5999994,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
                     "count": 8,
                     "gap": 0.9,
                     "delay": 13.199999,
@@ -224,44 +224,44 @@
             ]
         },
         {
-            "hp": 1.55,
+            "hp": 1.32,
             "groups": [
                 {
-                    "enemy": "brute",
-                    "count": 3,
-                    "gap": 1.6,
+                    "enemy": "oilskin",
+                    "count": 10,
+                    "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
                 },
                 {
-                    "enemy": "raider",
-                    "count": 7,
+                    "enemy": "jumper",
+                    "count": 11,
                     "gap": 0.9,
-                    "delay": 6.0,
+                    "delay": 10.2,
                     "gate": -1
                 },
                 {
-                    "enemy": "jumper",
-                    "count": 7,
-                    "gap": 0.9,
-                    "delay": 13.5,
+                    "enemy": "warlord",
+                    "count": 1,
+                    "gap": 6.0,
+                    "delay": 21.3,
                     "gate": -1
                 }
             ]
         }
     ],
     "par": {
-        "warden": {
-            "silver": 1980,
-            "gold": 2500
+        "iron": {
+            "silver": 2140,
+            "gold": 2610
         },
         "standard": {
-            "silver": 1980,
-            "gold": 2500
+            "silver": 2210,
+            "gold": 2740
         },
-        "iron": {
-            "silver": 1840,
-            "gold": 2330
+        "warden": {
+            "silver": 2130,
+            "gold": 2680
         }
     }
 }

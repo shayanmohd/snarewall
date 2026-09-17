@@ -16,7 +16,7 @@
         "........",
         "...K...."
     ],
-    "startCoin": 50,
+    "startCoin": 56,
     "traps": [
         "spike",
         "snare",
@@ -32,7 +32,7 @@
     ],
     "waves": [
         {
-            "hp": 0.59,
+            "hp": 0.55,
             "groups": [
                 {
                     "enemy": "raider",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "hp": 0.65,
+            "hp": 0.6,
             "groups": [
                 {
                     "enemy": "raider",
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "hp": 0.71,
+            "hp": 0.66,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -75,7 +75,7 @@
             ]
         },
         {
-            "hp": 0.77,
+            "hp": 0.71,
             "groups": [
                 {
                     "enemy": "brute",
@@ -94,7 +94,7 @@
             ]
         },
         {
-            "hp": 0.83,
+            "hp": 0.77,
             "groups": [
                 {
                     "enemy": "brute",
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "hp": 0.89,
+            "hp": 0.83,
             "groups": [
                 {
                     "enemy": "raider",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "hp": 0.95,
+            "hp": 0.88,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -151,7 +151,7 @@
             ]
         },
         {
-            "hp": 1.01,
+            "hp": 0.94,
             "groups": [
                 {
                     "enemy": "raider",
@@ -177,7 +177,7 @@
             ]
         },
         {
-            "hp": 1.07,
+            "hp": 0.99,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -204,17 +204,17 @@
         }
     ],
     "par": {
-        "warden": {
-            "silver": 1280,
-            "gold": 1620
+        "iron": {
+            "silver": 1340,
+            "gold": 1630
         },
         "standard": {
-            "silver": 1280,
-            "gold": 1620
+            "silver": 1270,
+            "gold": 1580
         },
-        "iron": {
-            "silver": 1280,
-            "gold": 1620
+        "warden": {
+            "silver": 1260,
+            "gold": 1570
         }
     }
 }

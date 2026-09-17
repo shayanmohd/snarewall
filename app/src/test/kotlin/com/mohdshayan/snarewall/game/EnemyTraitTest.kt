@@ -136,7 +136,10 @@ class EnemyTraitTest {
         }
         assertTrue(blocks > 0)
 
-        val raider = TestContent.sim(TestContent.OPEN_MAP, listOf(TestContent.wave(EnemyKind.RAIDER, hp = 1f)))
+        // Raider hp scaled to eight darts, so the test is about the shield and not the table.
+        val stats = TestContent.content
+        val raiderHp = 8f * stats.trap(TrapKind.DART).damage / stats.enemy(EnemyKind.RAIDER).hp
+        val raider = TestContent.sim(TestContent.OPEN_MAP, listOf(TestContent.wave(EnemyKind.RAIDER, hp = raiderHp)))
         assertNull(raider.placeWall(Grid.idx(3, 10)))
         assertNull(raider.placeTrap(TrapKind.DART, Grid.idx(3, 10)))
         raider.traps[0].facing = 0

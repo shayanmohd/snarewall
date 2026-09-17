@@ -30,7 +30,7 @@
     ],
     "waves": [
         {
-            "hp": 0.59,
+            "hp": 0.71,
             "groups": [
                 {
                     "enemy": "raider",
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "hp": 0.65,
+            "hp": 0.78,
             "groups": [
                 {
                     "enemy": "raider",
@@ -61,19 +61,19 @@
             ]
         },
         {
-            "hp": 0.7,
+            "hp": 0.85,
             "groups": [
                 {
-                    "enemy": "brute",
-                    "count": 5,
-                    "gap": 1.6,
+                    "enemy": "raider",
+                    "count": 10,
+                    "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 0.76,
+            "hp": 0.92,
             "groups": [
                 {
                     "enemy": "digger",
@@ -92,7 +92,7 @@
             ]
         },
         {
-            "hp": 0.82,
+            "hp": 1.0,
             "groups": [
                 {
                     "enemy": "runner",
@@ -111,50 +111,50 @@
             ]
         },
         {
-            "hp": 0.88,
+            "hp": 1.07,
             "groups": [
                 {
-                    "enemy": "digger",
+                    "enemy": "runner",
                     "count": 13,
-                    "gap": 0.9,
+                    "gap": 0.6,
                     "delay": 0.0,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 0.94,
+            "hp": 1.14,
             "groups": [
                 {
-                    "enemy": "raider",
-                    "count": 7,
-                    "gap": 0.9,
+                    "enemy": "swarmling",
+                    "count": 14,
+                    "gap": 0.35,
                     "delay": 0.0,
                     "gate": -1
                 },
                 {
-                    "enemy": "brute",
-                    "count": 3,
-                    "gap": 1.6,
-                    "delay": 7.5,
+                    "enemy": "raider",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 6.1000004,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.0,
+            "hp": 1.21,
             "groups": [
                 {
-                    "enemy": "raider",
+                    "enemy": "shieldbearer",
                     "count": 7,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
                 },
                 {
-                    "enemy": "digger",
+                    "enemy": "runner",
                     "count": 8,
-                    "gap": 0.9,
+                    "gap": 0.6,
                     "delay": 7.5,
                     "gate": -1
                 }
@@ -162,17 +162,17 @@
         }
     ],
     "par": {
-        "warden": {
-            "silver": 1410,
-            "gold": 1790
+        "iron": {
+            "silver": 1300,
+            "gold": 1590
         },
         "standard": {
-            "silver": 1410,
-            "gold": 1790
+            "silver": 1510,
+            "gold": 1880
         },
-        "iron": {
-            "silver": 1160,
-            "gold": 1470
+        "warden": {
+            "silver": 1430,
+            "gold": 1790
         }
     }
 }

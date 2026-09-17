@@ -26,7 +26,7 @@ class LevelForge {
         Spec(1, "chalk", "Barrow Gate", 40, 6, listOf(TrapKind.SPIKE), listOf(EnemyKind.RAIDER), listOf(EnemyKind.RAIDER), 0, listOf(
             "...G....", "........", ".#......", "........", "......#.", "........",
             "........", "........", "..#.....", "........", "........", "....K...")),
-        Spec(2, "chalk", "Flint Cut", 42, 7, listOf(TrapKind.SPIKE, TrapKind.SNARE), listOf(EnemyKind.RUNNER), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER), 0, listOf(
+        Spec(2, "chalk", "Flint Cut", 51, 7, listOf(TrapKind.SPIKE, TrapKind.SNARE), listOf(EnemyKind.RUNNER), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER), 0, listOf(
             "....G...", "........", "........", "...##...", "........", "........",
             ".#....#.", "........", "........", "....#...", "........", "...K....")),
         Spec(3, "chalk", "Two Barrows", 45, 7, listOf(TrapKind.SPIKE, TrapKind.SNARE, TrapKind.PUSHER, TrapKind.DEADFALL), listOf(EnemyKind.SWARMLING), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING), 0, listOf(
@@ -35,34 +35,34 @@ class LevelForge {
         Spec(4, "chalk", "Sheep Walk", 48, 8, listOf(TrapKind.SPIKE, TrapKind.SNARE, TrapKind.FROST, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.GRINDER), listOf(EnemyKind.BRUTE), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE), 0, listOf(
             "..G.....", "........", ".....#..", ".#......", "........", "........",
             "...##...", "........", "........", ".#....#.", "........", ".....K..")),
-        Spec(5, "chalk", "White Horse", 50, 9, listOf(TrapKind.SPIKE, TrapKind.SNARE, TrapKind.FROST, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.GRINDER, TrapKind.DART), listOf(EnemyKind.SHIELDBEARER, EnemyKind.WARLORD), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER), 1, listOf(
+        Spec(5, "chalk", "White Horse", 56, 9, listOf(TrapKind.SPIKE, TrapKind.SNARE, TrapKind.FROST, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.GRINDER, TrapKind.DART), listOf(EnemyKind.SHIELDBEARER, EnemyKind.WARLORD), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER), 1, listOf(
             ".G....G.", "........", "..#..#..", "........", "........", "...#....",
             "........", "........", ".#....#.", "........", "........", "...K....")),
-        Spec(6, "salt", "Brine Shaft", 50, 8, listOf(TrapKind.SPIKE, TrapKind.OIL, TrapKind.EMBER, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.DART), listOf(EnemyKind.DIGGER), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.BRUTE, EnemyKind.DIGGER), 0, listOf(
+        Spec(6, "salt", "Brine Shaft", 50, 8, listOf(TrapKind.SPIKE, TrapKind.OIL, TrapKind.EMBER, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.DART), listOf(EnemyKind.DIGGER), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER), 0, listOf(
             "...G....", "........", ".#.#....", "........", "........", ".....#.#",
             "........", "........", ".#.#....", "........", "........", "....K...")),
-        Spec(7, "salt", "Pillar Hall", 52, 9, listOf(TrapKind.SPIKE, TrapKind.OIL, TrapKind.EMBER, TrapKind.FROST, TrapKind.HAMMER, TrapKind.DART, TrapKind.GRINDER), listOf(EnemyKind.JUMPER), listOf(EnemyKind.RAIDER, EnemyKind.SWARMLING, EnemyKind.DIGGER, EnemyKind.JUMPER), 0, listOf(
-            "....G...", "........", "..#..#..", "........", "..#..#..", "........",
-            "..#..#..", "........", "..#..#..", "........", "........", "...K....")),
-        Spec(8, "salt", "Lamp Gallery", 55, 9, listOf(TrapKind.SPIKE, TrapKind.FROST, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.HAMMER, TrapKind.DART), listOf(EnemyKind.FLYER), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.BRUTE, EnemyKind.JUMPER, EnemyKind.FLYER), 0, listOf(
+        Spec(7, "salt", "Pillar Hall", 61, 9, listOf(TrapKind.SPIKE, TrapKind.FROST, TrapKind.HAMMER, TrapKind.DART, TrapKind.GRINDER), listOf(EnemyKind.JUMPER), listOf(EnemyKind.RAIDER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER, EnemyKind.JUMPER), 0, listOf(
+            "....G...", "........", "........", "..#..#..", "........", "..#..#..",
+            "........", "..#..#..", "........", "..#..#..", "........", "...K....")),
+        Spec(8, "salt", "Lamp Gallery", 55, 9, listOf(TrapKind.SPIKE, TrapKind.FROST, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.HAMMER, TrapKind.DART), listOf(EnemyKind.FLYER), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.JUMPER, EnemyKind.FLYER), 0, listOf(
             "..G.....", "........", "......#.", "........", ".#......", "........",
             "......#.", "........", ".#......", "........", "........", "......K.")),
-        Spec(9, "salt", "Salt Seam", 55, 10, listOf(TrapKind.SPIKE, TrapKind.SNARE, TrapKind.OIL, TrapKind.EMBER, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.DART, TrapKind.GRINDER), listOf(EnemyKind.SAPPER), listOf(EnemyKind.RAIDER, EnemyKind.SWARMLING, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER, EnemyKind.SAPPER), 0, listOf(
+        Spec(9, "salt", "Salt Seam", 64, 10, listOf(TrapKind.SPIKE, TrapKind.SNARE, TrapKind.OIL, TrapKind.EMBER, TrapKind.PUSHER, TrapKind.DEADFALL, TrapKind.DART, TrapKind.GRINDER), listOf(EnemyKind.SAPPER), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER, EnemyKind.SAPPER), 0, listOf(
             ".G....G.", "........", "........", ".##.....", "........", "........",
             ".....##.", "........", "........", "..#.....", "........", "....K...")),
-        Spec(10, "salt", "Deep Crossing", 60, 10, T, emptyList(), listOf(EnemyKind.RUNNER, EnemyKind.BRUTE, EnemyKind.DIGGER, EnemyKind.JUMPER, EnemyKind.FLYER, EnemyKind.SAPPER), 1, listOf(
+        Spec(10, "salt", "Deep Crossing", 60, 10, T, emptyList(), listOf(EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER, EnemyKind.JUMPER, EnemyKind.FLYER, EnemyKind.SAPPER), 1, listOf(
             "..G..G..", "........", ".#....#.", "........", "...##...", "........",
             ".#....#.", "........", "...##...", "........", "........", "...K....")),
-        Spec(11, "fen", "Reed Bank", 60, 10, T, listOf(EnemyKind.OILSKIN), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.FLYER, EnemyKind.OILSKIN), 0, listOf(
+        Spec(11, "fen", "Reed Bank", 60, 10, T, listOf(EnemyKind.OILSKIN), listOf(EnemyKind.RAIDER, EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.FLYER, EnemyKind.OILSKIN), 0, listOf(
             "...G....", "........", "##......", "........", ".....##.", "........",
             "........", "##......", "........", ".....##.", "........", "....K...")),
-        Spec(12, "fen", "Peat Road", 60, 11, T, listOf(EnemyKind.FROSTBORN), listOf(EnemyKind.RAIDER, EnemyKind.BRUTE, EnemyKind.JUMPER, EnemyKind.OILSKIN, EnemyKind.FROSTBORN), 0, listOf(
+        Spec(12, "fen", "Peat Road", 60, 11, T, listOf(EnemyKind.FROSTBORN), listOf(EnemyKind.RAIDER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.JUMPER, EnemyKind.OILSKIN, EnemyKind.FROSTBORN), 1, listOf(
             "....G...", "........", "...#....", "........", "......#.", "........",
             ".#......", "........", "........", "...#.#..", "........", "..K.....")),
-        Spec(13, "fen", "Eel Weir", 62, 11, T, emptyList(), listOf(EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER, EnemyKind.FLYER, EnemyKind.FROSTBORN), 0, listOf(
+        Spec(13, "fen", "Eel Weir", 62, 11, T, emptyList(), listOf(EnemyKind.RUNNER, EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER, EnemyKind.JUMPER, EnemyKind.FLYER, EnemyKind.FROSTBORN), 0, listOf(
             "G......G", "........", "...##...", "........", "........", "#......#",
             "........", "........", "...##...", "........", "........", "...K....")),
-        Spec(14, "fen", "Mist Causeway", 65, 12, T, emptyList(), listOf(EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.JUMPER, EnemyKind.OILSKIN, EnemyKind.SAPPER, EnemyKind.FLYER), 0, listOf(
+        Spec(14, "fen", "Mist Causeway", 65, 12, T, emptyList(), listOf(EnemyKind.SWARMLING, EnemyKind.BRUTE, EnemyKind.SHIELDBEARER, EnemyKind.DIGGER, EnemyKind.JUMPER, EnemyKind.OILSKIN, EnemyKind.SAPPER, EnemyKind.FLYER), 1, listOf(
             "..G.....", "........", ".#.#.#..", "........", "........", "..#.#.#.",
             "........", "........", ".#.#.#..", "........", "........", ".....K..")),
         Spec(15, "fen", "Drowned Keep", 70, 12, T, emptyList(), EnemyKind.entries.filter { it != EnemyKind.WARLORD }, 2, listOf(
@@ -93,7 +93,7 @@ class LevelForge {
             val c = maxOf(1, when (kind) {
                 EnemyKind.SWARMLING -> share * 2
                 EnemyKind.BRUTE -> maxOf(1, share / 2)
-                EnemyKind.FLYER -> (share * 3 + 4) / 5
+                EnemyKind.FLYER -> maxOf(1, share / 2)
                 else -> share
             })
             groups += WaveGroup(kind.id, c, gapFor(kind), delay)
@@ -142,17 +142,26 @@ class LevelForge {
         val json = Json { prettyPrint = true; encodeDefaults = true }
         val dummyPar = Difficulty.entries.associate { it.id to Par(0, 0) }
         val contentFor = { lv: LevelDef -> GameContent(base.traps, base.enemies, base.combos, base.regions, listOf(lv), base.daily) }
-        for (spec in specs) {
-            val target = 17 - (spec.id * 0.6f).toInt()
+        // Levels are independent, so they forge in parallel. Each one writes only its own files.
+        specs.parallelStream().forEach { spec ->
+            // Waves are tuned so that even the easiest setting costs the best build some hearts. When the
+            // easy setting ends untouched, every build ends untouched, and no build can be told from
+            // another: that is how one pair of traps came to match the whole roster everywhere.
+            val wardenTarget = 19 - (spec.id * 0.5f).toInt()
+            val ironTarget = 17 - (spec.id * 0.6f).toInt()
             var lo = 0.2f
             var hi = 6f
             repeat(14) {
                 val mid = (lo + hi) / 2
                 val lv = level(spec, mid, dummyPar)
-                val o = best(lv, Difficulty.IRON, contentFor(lv))
-                // Tuned against the best build on Iron, and also against thin mazes on Standard, so a level
-                // whose best build is a thick maze (jumpers) does not wall off the ordinary player.
-                if (o != null && o.sim.hearts >= target && thinClears(lv, Difficulty.STANDARD, contentFor(lv)) &&
+                val easy = best(lv, Difficulty.WARDEN, contentFor(lv))
+                val hard = best(lv, Difficulty.IRON, contentFor(lv))
+                // Two targets, and whichever bites first sets the level: the hardest setting keeps the
+                // falling margin that makes the curve rise, and the easiest still costs the best build
+                // some hearts. Thin mazes on Standard and Warden are checked too, so a level whose best
+                // build is a thick maze (jumpers) does not wall off the ordinary player.
+                if (easy != null && easy.sim.hearts >= wardenTarget && hard != null && hard.sim.hearts >= ironTarget &&
+                    thinClears(lv, Difficulty.STANDARD, contentFor(lv)) &&
                     thinClears(lv, Difficulty.WARDEN, contentFor(lv), hearts = 5)) lo = mid else hi = mid
             }
             // Level 1 is the tutorial: a gentler ramp than the curve, but not free.
@@ -166,15 +175,7 @@ class LevelForge {
                 check(empty.phase == Phase.LOST) { "Level ${spec.id} is won with nothing placed" }
                 if (outs.values.all { it != null }) result = outs.mapValues { it.value!! } else scale *= 0.95f
             }
-            val rawPar = result.mapKeys { it.key.id }.mapValues { (_, o) ->
-                val s = o.sim.score()
-                Par(silver = (s * 0.75f).toInt() / 10 * 10, gold = (s * 0.95f).toInt() / 10 * 10)
-            }
-            // The easier setting never asks for a higher score than the harder one.
-            val std = rawPar.getValue(Difficulty.STANDARD.id)
-            val par = rawPar.mapValues { (id, p) ->
-                if (id == Difficulty.WARDEN.id) Par(minOf(p.silver, std.silver), minOf(p.gold, std.gold)) else p
-            }
+            val par = parFor(result)
             val lv = level(spec, scale, par)
             File(levelsDir, "level%02d.json".format(spec.id)).writeText(json.encodeToString(LevelDef.serializer(), lv) + "\n")
             result.forEach { (d, o) ->
@@ -182,6 +183,42 @@ class LevelForge {
             }
             println("level ${spec.id} scale $scale " + result.entries.joinToString { "${it.key.id}: hearts ${it.value.sim.hearts} score ${it.value.sim.score()}" })
         }
+    }
+
+    /**
+     * A harder setting asks for a tighter share of what its own reference run scored, so the three
+     * settings never share one medal line. Where the rounding still collides, the easier setting's
+     * line drops by ten, which keeps the easier medal the easier one to earn.
+     */
+    private fun fractions(d: Difficulty): Pair<Float, Float> = when (d) {
+        Difficulty.WARDEN -> 0.70f to 0.88f
+        Difficulty.STANDARD -> 0.74f to 0.92f
+        Difficulty.IRON -> 0.78f to 0.95f
+    }
+
+    private fun parFor(result: Map<Difficulty, Outcome>): Map<String, Par> {
+        val raw = Difficulty.entries.associateWith { d ->
+            val s = result.getValue(d).sim.score()
+            val (sf, gf) = fractions(d)
+            Par(silver = (s * sf).toInt() / 10 * 10, gold = (s * gf).toInt() / 10 * 10)
+        }.toMutableMap()
+        // The easier setting never asks for a higher score than the harder one.
+        val std = raw.getValue(Difficulty.STANDARD)
+        raw[Difficulty.WARDEN] = raw.getValue(Difficulty.WARDEN).let { Par(minOf(it.silver, std.silver), minOf(it.gold, std.gold)) }
+        // Hardest first, then pull each easier line clear of the ones already fixed.
+        val used = ArrayList<Par>()
+        val out = LinkedHashMap<String, Par>()
+        for (d in listOf(Difficulty.IRON, Difficulty.STANDARD, Difficulty.WARDEN)) {
+            var p = raw.getValue(d)
+            var guard = 0
+            while (used.any { it.gold == p.gold || it.silver == p.silver } && guard++ < 40 && p.silver > 20) {
+                p = Par(p.silver - 10, p.gold - 10)
+            }
+            check(p.silver in 1 until p.gold) { "par ${d.id} $p" }
+            used += p
+            out[d.id] = p
+        }
+        return out
     }
 
     @Test

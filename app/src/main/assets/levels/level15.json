@@ -32,7 +32,7 @@
     "newEnemies": [],
     "waves": [
         {
-            "hp": 0.75,
+            "hp": 0.66,
             "groups": [
                 {
                     "enemy": "raider",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "hp": 0.83,
+            "hp": 0.73,
             "groups": [
                 {
                     "enemy": "frostborn",
@@ -56,7 +56,7 @@
             ]
         },
         {
-            "hp": 0.91,
+            "hp": 0.8,
             "groups": [
                 {
                     "enemy": "sapper",
@@ -68,7 +68,7 @@
             ]
         },
         {
-            "hp": 0.98,
+            "hp": 0.87,
             "groups": [
                 {
                     "enemy": "raider",
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "hp": 1.06,
+            "hp": 0.93,
             "groups": [
                 {
                     "enemy": "jumper",
@@ -99,7 +99,7 @@
             ]
         },
         {
-            "hp": 1.13,
+            "hp": 1.0,
             "groups": [
                 {
                     "enemy": "brute",
@@ -118,7 +118,7 @@
             ]
         },
         {
-            "hp": 1.21,
+            "hp": 1.07,
             "groups": [
                 {
                     "enemy": "raider",
@@ -144,7 +144,7 @@
             ]
         },
         {
-            "hp": 1.29,
+            "hp": 1.13,
             "groups": [
                 {
                     "enemy": "digger",
@@ -162,7 +162,7 @@
                 },
                 {
                     "enemy": "flyer",
-                    "count": 5,
+                    "count": 3,
                     "gap": 0.9,
                     "delay": 11.4,
                     "gate": -1
@@ -170,7 +170,7 @@
             ]
         },
         {
-            "hp": 1.36,
+            "hp": 1.2,
             "groups": [
                 {
                     "enemy": "runner",
@@ -189,7 +189,7 @@
             ]
         },
         {
-            "hp": 1.44,
+            "hp": 1.27,
             "groups": [
                 {
                     "enemy": "raider",
@@ -215,11 +215,11 @@
             ]
         },
         {
-            "hp": 1.51,
+            "hp": 1.33,
             "groups": [
                 {
                     "enemy": "flyer",
-                    "count": 5,
+                    "count": 3,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
@@ -228,20 +228,20 @@
                     "enemy": "jumper",
                     "count": 7,
                     "gap": 0.9,
-                    "delay": 5.7,
+                    "delay": 3.8999999,
                     "gate": -1
                 },
                 {
                     "enemy": "frostborn",
                     "count": 8,
                     "gap": 0.9,
-                    "delay": 13.2,
+                    "delay": 11.4,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.59,
+            "hp": 1.4,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -275,17 +275,17 @@
         }
     ],
     "par": {
-        "warden": {
-            "silver": 2210,
-            "gold": 2800
+        "iron": {
+            "silver": 1940,
+            "gold": 2360
         },
         "standard": {
-            "silver": 2210,
-            "gold": 2800
+            "silver": 2360,
+            "gold": 2940
         },
-        "iron": {
-            "silver": 1900,
-            "gold": 2410
+        "warden": {
+            "silver": 2240,
+            "gold": 2810
         }
     }
 }
