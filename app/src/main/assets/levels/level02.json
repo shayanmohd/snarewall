@@ -1,0 +1,155 @@
+{
+    "id": 2,
+    "region": "chalk",
+    "name": "Flint Cut",
+    "map": [
+        "....G...",
+        "........",
+        "........",
+        "...##...",
+        "........",
+        "........",
+        ".#....#.",
+        "........",
+        "........",
+        "....#...",
+        "........",
+        "...K...."
+    ],
+    "startCoin": 42,
+    "traps": [
+        "spike",
+        "snare"
+    ],
+    "newEnemies": [
+        "runner"
+    ],
+    "waves": [
+        {
+            "hp": 1.25,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.38,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 3,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 4,
+                    "gap": 0.6,
+                    "delay": 3.8999999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.51,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.63,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 4,
+                    "gap": 0.6,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 3.6000001,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.76,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 10,
+                    "gap": 0.6,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.88,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 6,
+                    "gap": 0.6,
+                    "delay": 5.7,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 2.01,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 6,
+                    "gap": 0.6,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 4.8,
+                    "gate": -1
+                }
+            ]
+        }
+    ],
+    "par": {
+        "warden": {
+            "silver": 1240,
+            "gold": 1580
+        },
+        "standard": {
+            "silver": 1200,
+            "gold": 1520
+        },
+        "iron": {
+            "silver": 1110,
+            "gold": 1410
+        }
+    }
+}

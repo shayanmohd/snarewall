@@ -1,0 +1,14 @@
+[
+  {"id": "raider", "hp": 30, "speed": 1.0, "bounty": 2, "hearts": 1, "note": "Walks your route."},
+  {"id": "runner", "hp": 18, "speed": 1.8, "bounty": 2, "hearts": 1, "note": "Fast and fragile."},
+  {"id": "brute", "hp": 90, "speed": 0.7, "bounty": 5, "hearts": 2, "note": "Armour halves every hit but the grinder's."},
+  {"id": "shieldbearer", "hp": 45, "speed": 0.9, "bounty": 3, "hearts": 1, "note": "Blocks darts fired at its face."},
+  {"id": "swarmling", "hp": 8, "speed": 1.5, "bounty": 1, "hearts": 1, "note": "Comes in packs. Spikes cut through them."},
+  {"id": "digger", "hp": 40, "speed": 0.9, "bounty": 4, "hearts": 1, "note": "Tunnels once under your walls when the detour is long."},
+  {"id": "jumper", "hp": 32, "speed": 1.1, "bounty": 4, "hearts": 1, "note": "Hops a wall one block thick. Two blocks stop it."},
+  {"id": "flyer", "hp": 22, "speed": 1.2, "bounty": 3, "hearts": 1, "note": "Flies straight at the keep. Only darts reach it."},
+  {"id": "oilskin", "hp": 40, "speed": 1.0, "bounty": 3, "hearts": 1, "note": "Fireproof."},
+  {"id": "frostborn", "hp": 50, "speed": 1.0, "bounty": 4, "hearts": 1, "note": "Cannot be slowed or chilled."},
+  {"id": "sapper", "hp": 35, "speed": 0.9, "bounty": 4, "hearts": 1, "note": "Knocks down the first wall it touches."},
+  {"id": "warlord", "hp": 400, "speed": 0.55, "bounty": 30, "hearts": 5, "note": "Armoured, cannot be shoved, costs five hearts."}
+]

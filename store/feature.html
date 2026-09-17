@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Bungee"; src: url("fonts/bungee_regular.ttf") format("truetype"); }
+  @font-face { font-family: "Lexend"; src: url("fonts/lexend_regular.ttf") format("truetype"); }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1024px; height: 500px; overflow: hidden; position: relative;
+    background: linear-gradient(135deg, #22B865 0%, #1CA85C 100%);
+  }
+  .mark { position: absolute; left: 58px; top: 40px; width: 250px; height: 234px; }
+  .words { position: absolute; left: 72px; top: 292px; width: 580px; color: #17211D; }
+  h1 { font-family: "Bungee", sans-serif; font-weight: 400; font-size: 76px; line-height: 1; margin: 0; }
+  p { font-family: "Lexend", sans-serif; font-size: 31px; line-height: 1.3; margin: 18px 0 0 0; }
+  .phone {
+    position: absolute; left: 692px; top: 44px; width: 270px; height: 520px;
+    border: 9px solid #17211D; border-radius: 34px; overflow: hidden; background: #E3E7E1;
+    box-shadow: 0 18px 40px rgba(11, 74, 40, 0.35);
+  }
+  .phone img { display: block; width: 270px; margin-top: -26px; }
+</style>
+</head>
+<body>
+  <svg class="mark" viewBox="26 28 62 58" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F6F8F4"/><stop offset="1" stop-color="#D9E3DC"/>
+      </linearGradient>
+    </defs>
+    <rect x="28" y="45" width="42" height="25" rx="2" fill="#0B4A28" opacity="0.28"/>
+    <g fill="url(#stone)" stroke="#0B4A28" stroke-width="1.4">
+      <rect x="28" y="42" width="13" height="11.5" rx="1.4"/>
+      <rect x="43" y="42" width="13" height="11.5" rx="1.4"/>
+      <rect x="58" y="42" width="12" height="11.5" rx="1.4"/>
+      <rect x="28" y="55.5" width="6" height="11.5" rx="1.4"/>
+      <rect x="36" y="55.5" width="13" height="11.5" rx="1.4"/>
+      <rect x="51" y="55.5" width="12" height="11.5" rx="1.4"/>
+      <rect x="65" y="55.5" width="5" height="11.5" rx="1.4"/>
+    </g>
+    <path d="M34 34.5 H62 A20 20 0 0 1 62 74.5 H56" fill="none" stroke="#17211D" stroke-width="5.2"
+          stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9.5 5"/>
+    <circle cx="48.5" cy="74.5" r="5.6" fill="none" stroke="#17211D" stroke-width="4.6"/>
+  </svg>
+  <div class="words">
+    <h1>Snarewall</h1>
+    <p>Build the maze. Chain the traps.</p>
+  </div>
+  <div class="phone"><img src="screenshots-raw/01-wall-bends-route.png" alt=""></div>
+</body>
+</html>

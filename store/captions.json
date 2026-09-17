@@ -1,0 +1,21 @@
+{
+  "background": ["#2BB866", "#22A85C"],
+  "text": "#17211D",
+  "frame": "#17211D",
+  "font": "fonts/lexend_semibold.ttf",
+  "weight": 600,
+  "shots": [
+    { "src": "screenshots-raw/01-wall-bends-route.png", "out": "screenshots/01-wall-bends-route.png",
+      "caption": "Every wall redraws the enemy path" },
+    { "src": "screenshots-raw/02-pusher-deadfall-combo.png", "out": "screenshots/02-pusher-deadfall-combo.png",
+      "caption": "Shove them onto the deadfall" },
+    { "src": "screenshots-raw/03-diggers-and-jumpers.png", "out": "screenshots/03-diggers-and-jumpers.png",
+      "caption": "Diggers and jumpers test mazes" },
+    { "src": "screenshots-raw/04-daily-map.png", "out": "screenshots/04-daily-map.png",
+      "caption": "A new daily map for everyone" },
+    { "src": "screenshots-raw/05-oil-and-ember-3x.png", "out": "screenshots/05-oil-and-ember-3x.png",
+      "caption": "Oil and ember: traps that chain" },
+    { "src": "screenshots-raw/06-levels-and-medals.png", "out": "screenshots/06-levels-and-medals.png",
+      "caption": "No ads. No purchases. Offline." }
+  ]
+}

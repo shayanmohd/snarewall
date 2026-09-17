@@ -1,0 +1,232 @@
+{
+    "id": 10,
+    "region": "salt",
+    "name": "Deep Crossing",
+    "map": [
+        "..G..G..",
+        "........",
+        ".#....#.",
+        "........",
+        "...##...",
+        "........",
+        ".#....#.",
+        "........",
+        "...##...",
+        "........",
+        "........",
+        "...K...."
+    ],
+    "startCoin": 60,
+    "traps": [
+        "spike",
+        "oil",
+        "ember",
+        "frost",
+        "snare",
+        "pusher",
+        "deadfall",
+        "dart",
+        "hammer",
+        "grinder"
+    ],
+    "newEnemies": [],
+    "waves": [
+        {
+            "hp": 0.53,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 10,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.59,
+            "groups": [
+                {
+                    "enemy": "brute",
+                    "count": 5,
+                    "gap": 1.6,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.64,
+            "groups": [
+                {
+                    "enemy": "jumper",
+                    "count": 12,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.69,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 6,
+                    "gap": 0.6,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 4.8,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.75,
+            "groups": [
+                {
+                    "enemy": "brute",
+                    "count": 3,
+                    "gap": 1.6,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 7,
+                    "gap": 0.6,
+                    "delay": 6.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.8,
+            "groups": [
+                {
+                    "enemy": "sapper",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "brute",
+                    "count": 4,
+                    "gap": 1.6,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.85,
+            "groups": [
+                {
+                    "enemy": "jumper",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 8.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.91,
+            "groups": [
+                {
+                    "enemy": "digger",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "jumper",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 5.7,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 7,
+                    "gap": 0.6,
+                    "delay": 11.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.96,
+            "groups": [
+                {
+                    "enemy": "jumper",
+                    "count": 9,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 9,
+                    "gap": 0.6,
+                    "delay": 9.299999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.01,
+            "groups": [
+                {
+                    "enemy": "brute",
+                    "count": 4,
+                    "gap": 1.6,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 10,
+                    "gap": 0.9,
+                    "delay": 7.6000004,
+                    "gate": -1
+                },
+                {
+                    "enemy": "warlord",
+                    "count": 1,
+                    "gap": 6.0,
+                    "delay": 17.8,
+                    "gate": -1
+                }
+            ]
+        }
+    ],
+    "par": {
+        "warden": {
+            "silver": 1780,
+            "gold": 2250
+        },
+        "standard": {
+            "silver": 1700,
+            "gold": 2150
+        },
+        "iron": {
+            "silver": 1530,
+            "gold": 1940
+        }
+    }
+}

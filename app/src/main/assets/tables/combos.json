@@ -1,0 +1,6 @@
+[
+  {"id": "push_deadfall", "first": "pusher", "second": "deadfall", "name": "Pusher into deadfall", "note": "A shoved enemy lands under the stone for double damage."},
+  {"id": "oil_ember", "first": "oil", "second": "ember", "name": "Oil into ember", "note": "Oil next to an ember grate carries its fire."},
+  {"id": "frost_hammer", "first": "frost", "second": "hammer", "name": "Frost into shatter hammer", "note": "The hammer deals triple to chilled enemies."},
+  {"id": "snare_spike", "first": "snare", "second": "spike", "name": "Snare net onto spike plate", "note": "A net next to spikes holds enemies on the spikes."}
+]

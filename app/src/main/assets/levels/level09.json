@@ -1,0 +1,239 @@
+{
+    "id": 9,
+    "region": "salt",
+    "name": "Salt Seam",
+    "map": [
+        ".G....G.",
+        "........",
+        "........",
+        ".##.....",
+        "........",
+        "........",
+        ".....##.",
+        "........",
+        "........",
+        "..#.....",
+        "........",
+        "....K..."
+    ],
+    "startCoin": 55,
+    "traps": [
+        "spike",
+        "snare",
+        "oil",
+        "ember",
+        "pusher",
+        "deadfall",
+        "dart",
+        "grinder"
+    ],
+    "newEnemies": [
+        "sapper"
+    ],
+    "waves": [
+        {
+            "hp": 1.03,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 9,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.13,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 5.7,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.24,
+            "groups": [
+                {
+                    "enemy": "sapper",
+                    "count": 11,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.34,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 12,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.45,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 26,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.55,
+            "groups": [
+                {
+                    "enemy": "digger",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "swarmling",
+                    "count": 14,
+                    "gap": 0.35,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.65,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "swarmling",
+                    "count": 10,
+                    "gap": 0.35,
+                    "delay": 5.7,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 10.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.76,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 5.7,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 11.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.86,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 5.7,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 11.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.96,
+            "groups": [
+                {
+                    "enemy": "sapper",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "shieldbearer",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 6.5999994,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 13.199999,
+                    "gate": -1
+                }
+            ]
+        }
+    ],
+    "par": {
+        "warden": {
+            "silver": 2010,
+            "gold": 2540
+        },
+        "standard": {
+            "silver": 2010,
+            "gold": 2540
+        },
+        "iron": {
+            "silver": 1830,
+            "gold": 2310
+        }
+    }
+}

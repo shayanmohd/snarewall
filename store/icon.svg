@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108">
+  <!--
+    Snarewall. Emerald ground, one cut-stone wall in running bond. The enemy route thread
+    runs along its top, hairpins around its end and doubles back beneath it into a snare loop.
+    Everything sits inside the launcher safe circle r=33 at (54,54).
+  -->
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22B865"/>
+      <stop offset="1" stop-color="#1CA85C"/>
+    </linearGradient>
+    <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6F8F4"/>
+      <stop offset="1" stop-color="#D9E3DC"/>
+    </linearGradient>
+  </defs>
+
+  <g id="bg">
+    <rect x="0" y="0" width="108" height="108" fill="url(#ground)"/>
+  </g>
+
+  <g id="fg">
+    <g fill="#0B4A28" opacity="0.28">
+      <rect x="28" y="45" width="42" height="25" rx="2"/>
+    </g>
+    <g fill="url(#stone)" stroke="#0B4A28" stroke-width="1.4">
+      <rect x="28" y="42" width="13" height="11.5" rx="1.4"/>
+      <rect x="43" y="42" width="13" height="11.5" rx="1.4"/>
+      <rect x="58" y="42" width="12" height="11.5" rx="1.4"/>
+      <rect x="28" y="55.5" width="6" height="11.5" rx="1.4"/>
+      <rect x="36" y="55.5" width="13" height="11.5" rx="1.4"/>
+      <rect x="51" y="55.5" width="12" height="11.5" rx="1.4"/>
+      <rect x="65" y="55.5" width="5" height="11.5" rx="1.4"/>
+    </g>
+    <path d="M34 34.5 H62 A20 20 0 0 1 62 74.5 H56" fill="none" stroke="#17211D" stroke-width="5.2"
+          stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9.5 5"/>
+    <circle cx="48.5" cy="74.5" r="5.6" fill="none" stroke="#17211D" stroke-width="4.6"/>
+  </g>
+
+  <g id="mono">
+    <g fill="#000000">
+      <rect x="28" y="42" width="13" height="11.5" rx="1.4"/>
+      <rect x="43" y="42" width="13" height="11.5" rx="1.4"/>
+      <rect x="58" y="42" width="12" height="11.5" rx="1.4"/>
+      <rect x="28" y="55.5" width="6" height="11.5" rx="1.4"/>
+      <rect x="36" y="55.5" width="13" height="11.5" rx="1.4"/>
+      <rect x="51" y="55.5" width="12" height="11.5" rx="1.4"/>
+      <rect x="65" y="55.5" width="5" height="11.5" rx="1.4"/>
+    </g>
+    <path d="M34 34.5 H62 A20 20 0 0 1 62 74.5 H56" fill="none" stroke="#000000" stroke-width="5.2"
+          stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="9.5 5"/>
+    <circle cx="48.5" cy="74.5" r="5.6" fill="none" stroke="#000000" stroke-width="4.6"/>
+  </g>
+</svg>

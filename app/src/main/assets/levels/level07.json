@@ -1,0 +1,212 @@
+{
+    "id": 7,
+    "region": "salt",
+    "name": "Pillar Hall",
+    "map": [
+        "....G...",
+        "........",
+        "..#..#..",
+        "........",
+        "..#..#..",
+        "........",
+        "..#..#..",
+        "........",
+        "..#..#..",
+        "........",
+        "........",
+        "...K...."
+    ],
+    "startCoin": 52,
+    "traps": [
+        "spike",
+        "oil",
+        "ember",
+        "frost",
+        "hammer",
+        "dart",
+        "grinder"
+    ],
+    "newEnemies": [
+        "jumper"
+    ],
+    "waves": [
+        {
+            "hp": 0.86,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.94,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 4,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "jumper",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 4.8,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.03,
+            "groups": [
+                {
+                    "enemy": "jumper",
+                    "count": 10,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.12,
+            "groups": [
+                {
+                    "enemy": "jumper",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 5.7,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.2,
+            "groups": [
+                {
+                    "enemy": "digger",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 6.5999994,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.29,
+            "groups": [
+                {
+                    "enemy": "digger",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 6.5999994,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.38,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 8,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "jumper",
+                    "count": 4,
+                    "gap": 0.9,
+                    "delay": 4.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 8.8,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.46,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 14,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 6.1000004,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.55,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 8.4,
+                    "gate": -1
+                }
+            ]
+        }
+    ],
+    "par": {
+        "warden": {
+            "silver": 1680,
+            "gold": 2130
+        },
+        "standard": {
+            "silver": 1560,
+            "gold": 1970
+        },
+        "iron": {
+            "silver": 1370,
+            "gold": 1740
+        }
+    }
+}

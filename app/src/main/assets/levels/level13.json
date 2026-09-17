@@ -1,0 +1,244 @@
+{
+    "id": 13,
+    "region": "fen",
+    "name": "Eel Weir",
+    "map": [
+        "G......G",
+        "........",
+        "...##...",
+        "........",
+        "........",
+        "#......#",
+        "........",
+        "........",
+        "...##...",
+        "........",
+        "........",
+        "...K...."
+    ],
+    "startCoin": 62,
+    "traps": [
+        "spike",
+        "oil",
+        "ember",
+        "frost",
+        "snare",
+        "pusher",
+        "deadfall",
+        "dart",
+        "hammer",
+        "grinder"
+    ],
+    "newEnemies": [],
+    "waves": [
+        {
+            "hp": 1.01,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 11,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.11,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 12,
+                    "gap": 0.6,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.22,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 26,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.32,
+            "groups": [
+                {
+                    "enemy": "flyer",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "swarmling",
+                    "count": 14,
+                    "gap": 0.35,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.42,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.52,
+            "groups": [
+                {
+                    "enemy": "frostborn",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 8,
+                    "gap": 0.6,
+                    "delay": 8.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.62,
+            "groups": [
+                {
+                    "enemy": "runner",
+                    "count": 17,
+                    "gap": 0.6,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.73,
+            "groups": [
+                {
+                    "enemy": "digger",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "shieldbearer",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 6.5999994,
+                    "gate": -1
+                },
+                {
+                    "enemy": "runner",
+                    "count": 6,
+                    "gap": 0.6,
+                    "delay": 13.199999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.83,
+            "groups": [
+                {
+                    "enemy": "frostborn",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "shieldbearer",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 6.5999994,
+                    "gate": -1
+                },
+                {
+                    "enemy": "swarmling",
+                    "count": 14,
+                    "gap": 0.35,
+                    "delay": 13.199999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.93,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 20,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "frostborn",
+                    "count": 10,
+                    "gap": 0.9,
+                    "delay": 8.2,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 2.03,
+            "groups": [
+                {
+                    "enemy": "swarmling",
+                    "count": 20,
+                    "gap": 0.35,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "digger",
+                    "count": 11,
+                    "gap": 0.9,
+                    "delay": 8.2,
+                    "gate": -1
+                }
+            ]
+        }
+    ],
+    "par": {
+        "warden": {
+            "silver": 2300,
+            "gold": 2910
+        },
+        "standard": {
+            "silver": 2250,
+            "gold": 2860
+        },
+        "iron": {
+            "silver": 2030,
+            "gold": 2570
+        }
+    }
+}

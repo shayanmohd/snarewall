@@ -1,0 +1,7 @@
+{
+  "startCoin": 45,
+  "waveBonus": 5,
+  "hpBase": 0.45,
+  "hpGrowth": 0.07,
+  "unlocks": {"raider": 1, "runner": 3, "swarmling": 5, "brute": 7, "shieldbearer": 9, "flyer": 11, "jumper": 13, "digger": 15, "oilskin": 17, "frostborn": 19, "sapper": 21}
+}

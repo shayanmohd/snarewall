@@ -1,0 +1,121 @@
+{
+    "id": 1,
+    "region": "chalk",
+    "name": "Barrow Gate",
+    "map": [
+        "...G....",
+        "........",
+        ".#......",
+        "........",
+        "......#.",
+        "........",
+        "........",
+        "........",
+        "..#.....",
+        "........",
+        "........",
+        "....K..."
+    ],
+    "startCoin": 40,
+    "traps": [
+        "spike"
+    ],
+    "newEnemies": [
+        "raider"
+    ],
+    "waves": [
+        {
+            "hp": 0.25,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 5,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.4,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 3,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "raider",
+                    "count": 3,
+                    "gap": 0.9,
+                    "delay": 3.8999999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.55,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.7,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.85,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 9,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 1.0,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 10,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        }
+    ],
+    "par": {
+        "warden": {
+            "silver": 1110,
+            "gold": 1400
+        },
+        "standard": {
+            "silver": 1110,
+            "gold": 1400
+        },
+        "iron": {
+            "silver": 970,
+            "gold": 1230
+        }
+    }
+}

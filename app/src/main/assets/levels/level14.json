@@ -1,0 +1,270 @@
+{
+    "id": 14,
+    "region": "fen",
+    "name": "Mist Causeway",
+    "map": [
+        "..G.....",
+        "........",
+        ".#.#.#..",
+        "........",
+        "........",
+        "..#.#.#.",
+        "........",
+        "........",
+        ".#.#.#..",
+        "........",
+        "........",
+        ".....K.."
+    ],
+    "startCoin": 65,
+    "traps": [
+        "spike",
+        "oil",
+        "ember",
+        "frost",
+        "snare",
+        "pusher",
+        "deadfall",
+        "dart",
+        "hammer",
+        "grinder"
+    ],
+    "newEnemies": [],
+    "waves": [
+        {
+            "hp": 0.46,
+            "groups": [
+                {
+                    "enemy": "raider",
+                    "count": 12,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.51,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 13,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.55,
+            "groups": [
+                {
+                    "enemy": "flyer",
+                    "count": 14,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.6,
+            "groups": [
+                {
+                    "enemy": "sapper",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "flyer",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 7.5,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.65,
+            "groups": [
+                {
+                    "enemy": "oilskin",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 8.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.69,
+            "groups": [
+                {
+                    "enemy": "shieldbearer",
+                    "count": 8,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 9,
+                    "gap": 0.9,
+                    "delay": 8.4,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.74,
+            "groups": [
+                {
+                    "enemy": "sapper",
+                    "count": 9,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "flyer",
+                    "count": 9,
+                    "gap": 0.9,
+                    "delay": 9.299999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.79,
+            "groups": [
+                {
+                    "enemy": "flyer",
+                    "count": 6,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "brute",
+                    "count": 3,
+                    "gap": 1.6,
+                    "delay": 6.5999994,
+                    "gate": -1
+                },
+                {
+                    "enemy": "oilskin",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 12.599999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.83,
+            "groups": [
+                {
+                    "enemy": "flyer",
+                    "count": 10,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "shieldbearer",
+                    "count": 10,
+                    "gap": 0.9,
+                    "delay": 10.2,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.88,
+            "groups": [
+                {
+                    "enemy": "flyer",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "sapper",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 7.5,
+                    "gate": -1
+                },
+                {
+                    "enemy": "shieldbearer",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 15.0,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.93,
+            "groups": [
+                {
+                    "enemy": "jumper",
+                    "count": 11,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "oilskin",
+                    "count": 11,
+                    "gap": 0.9,
+                    "delay": 11.099999,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.97,
+            "groups": [
+                {
+                    "enemy": "oilskin",
+                    "count": 11,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "brute",
+                    "count": 6,
+                    "gap": 1.6,
+                    "delay": 11.099999,
+                    "gate": -1
+                }
+            ]
+        }
+    ],
+    "par": {
+        "warden": {
+            "silver": 2310,
+            "gold": 2930
+        },
+        "standard": {
+            "silver": 2180,
+            "gold": 2760
+        },
+        "iron": {
+            "silver": 2000,
+            "gold": 2530
+        }
+    }
+}
