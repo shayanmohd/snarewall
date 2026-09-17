@@ -89,8 +89,8 @@ fun ResultScreen(args: Result, onPlay: (Board) -> Unit, onHome: () -> Unit, onLe
         Text("${args.score}", style = MaterialTheme.typography.displaySmall, color = c.ink)
         Text(
             when {
-                args.daily && args.newBest -> "New best for today"
-                args.daily -> "Score. Your best today stands."
+                args.daily && args.newBest -> if (day == DailyGenerator.todayKey()) "New best for today" else "New best for this map"
+                args.daily -> if (day == DailyGenerator.todayKey()) "Score. Your best today stands." else "Score. Your best for this map stands."
                 args.won && args.newBest -> "Score. A new best on this difficulty."
                 args.won -> "Score"
                 else -> "Score from kills. Only a clear earns a medal."
@@ -128,7 +128,7 @@ fun ResultScreen(args: Result, onPlay: (Board) -> Unit, onHome: () -> Unit, onLe
                         }
                         context.startActivity(Intent.createChooser(send, "Share result"))
                     }, modifier = Modifier.fillMaxWidth())
-                    QuietButton("Try again", onClick = { onPlay(Board(0, "standard", true, true)) }, modifier = Modifier.fillMaxWidth())
+                    QuietButton("Try again", onClick = { onPlay(Board(0, "standard", true, true, day)) }, modifier = Modifier.fillMaxWidth())
                 }
                 args.won && args.levelId < LEVEL_COUNT -> {
                     PrimaryButton("Next level", onClick = { onPlay(Board(args.levelId + 1, args.difficulty, false, true)) }, modifier = Modifier.fillMaxWidth())

@@ -78,7 +78,7 @@ object DailyGenerator {
         return true
     }
 
-    /** Wave [n] (0 based) of the daily map. Enemies unlock by wave number; every tenth wave brings a warlord. */
+    /** Wave [n] (0 based) of the daily map. Enemies unlock by wave number; every tenth wave brings one warlord. */
     fun wave(dateKey: String, n: Int, table: DailyTable): WaveDef {
         val rng = Rng(Rng.seedOf("daily:$dateKey:wave:$n"))
         val number = n + 1
@@ -89,8 +89,11 @@ object DailyGenerator {
         val kinds = if (unlocked.size <= 2) unlocked else List(minOf(3, 1 + number / 4)) { unlocked[rng.nextInt(unlocked.size)] }.distinct()
         val total = 5 + (number * 1.2f).toInt()
         var delay = 0f
+        var assigned = 0
         kinds.forEachIndexed { i, k ->
-            val share = if (i == kinds.lastIndex) total - groups.sumOf { it.count } else maxOf(1, total / kinds.size)
+            // Shares are counted before swarmlings double, so a swarmling group never starves the last kind.
+            val share = if (i == kinds.lastIndex) total - assigned else maxOf(1, total / kinds.size)
+            assigned += share
             val count = if (k == EnemyKind.SWARMLING) share * 2 else share
             val gap = when (k) {
                 EnemyKind.SWARMLING -> 0.35f
@@ -100,7 +103,8 @@ object DailyGenerator {
             if (count > 0) groups += WaveGroup(k.id, count, gap, delay)
             delay += count * gap + 1.5f
         }
-        if (number % 10 == 0) groups += WaveGroup(EnemyKind.WARLORD.id, number / 10, 3f, delay)
+        // One warlord per tenth wave: its hp already grows with the wave, so more than one is a fixed wall.
+        if (number % 10 == 0) groups += WaveGroup(EnemyKind.WARLORD.id, 1, 3f, delay)
         val hp = table.hpBase * (1f + table.hpGrowth).pow(n)
         return WaveDef(hp, groups)
     }

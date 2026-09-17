@@ -31,7 +31,7 @@
     ],
     "waves": [
         {
-            "hp": 0.86,
+            "hp": 0.25,
             "groups": [
                 {
                     "enemy": "raider",
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "hp": 0.94,
+            "hp": 0.28,
             "groups": [
                 {
                     "enemy": "raider",
@@ -62,7 +62,7 @@
             ]
         },
         {
-            "hp": 1.03,
+            "hp": 0.3,
             "groups": [
                 {
                     "enemy": "jumper",
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "hp": 1.12,
+            "hp": 0.33,
             "groups": [
                 {
                     "enemy": "jumper",
@@ -93,7 +93,7 @@
             ]
         },
         {
-            "hp": 1.2,
+            "hp": 0.36,
             "groups": [
                 {
                     "enemy": "digger",
@@ -112,7 +112,7 @@
             ]
         },
         {
-            "hp": 1.29,
+            "hp": 0.38,
             "groups": [
                 {
                     "enemy": "digger",
@@ -131,7 +131,7 @@
             ]
         },
         {
-            "hp": 1.38,
+            "hp": 0.41,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -157,7 +157,7 @@
             ]
         },
         {
-            "hp": 1.46,
+            "hp": 0.43,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -176,7 +176,7 @@
             ]
         },
         {
-            "hp": 1.55,
+            "hp": 0.46,
             "groups": [
                 {
                     "enemy": "raider",
@@ -201,12 +201,12 @@
             "gold": 2130
         },
         "standard": {
-            "silver": 1560,
-            "gold": 1970
+            "silver": 1680,
+            "gold": 2130
         },
         "iron": {
-            "silver": 1370,
-            "gold": 1740
+            "silver": 1680,
+            "gold": 2130
         }
     }
 }

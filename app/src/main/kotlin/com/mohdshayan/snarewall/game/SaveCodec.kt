@@ -51,7 +51,8 @@ object SaveCodec {
 
     fun decode(text: String): Decoded {
         val root = try {
-            json.parseToJsonElement(text) as? JsonObject
+            // Some editors add a UTF-8 byte order mark when a save is opened and saved again.
+            json.parseToJsonElement(text.removePrefix("\uFEFF")) as? JsonObject
         } catch (e: Exception) {
             null
         } catch (e: StackOverflowError) {

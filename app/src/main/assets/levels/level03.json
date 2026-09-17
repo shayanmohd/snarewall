@@ -28,7 +28,7 @@
     ],
     "waves": [
         {
-            "hp": 1.34,
+            "hp": 0.82,
             "groups": [
                 {
                     "enemy": "raider",
@@ -40,7 +40,7 @@
             ]
         },
         {
-            "hp": 1.48,
+            "hp": 0.9,
             "groups": [
                 {
                     "enemy": "raider",
@@ -59,7 +59,7 @@
             ]
         },
         {
-            "hp": 1.61,
+            "hp": 0.98,
             "groups": [
                 {
                     "enemy": "raider",
@@ -71,7 +71,7 @@
             ]
         },
         {
-            "hp": 1.75,
+            "hp": 1.07,
             "groups": [
                 {
                     "enemy": "runner",
@@ -90,7 +90,7 @@
             ]
         },
         {
-            "hp": 1.88,
+            "hp": 1.15,
             "groups": [
                 {
                     "enemy": "raider",
@@ -102,7 +102,7 @@
             ]
         },
         {
-            "hp": 2.02,
+            "hp": 1.23,
             "groups": [
                 {
                     "enemy": "runner",
@@ -114,7 +114,7 @@
             ]
         },
         {
-            "hp": 2.15,
+            "hp": 1.31,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -135,16 +135,16 @@
     ],
     "par": {
         "warden": {
-            "silver": 1190,
-            "gold": 1510
+            "silver": 1180,
+            "gold": 1500
         },
         "standard": {
-            "silver": 1190,
-            "gold": 1510
+            "silver": 1180,
+            "gold": 1500
         },
         "iron": {
             "silver": 1140,
-            "gold": 1450
+            "gold": 1440
         }
     }
 }

@@ -89,12 +89,20 @@ class LevelForge {
         var delay = 0f
         kinds.forEachIndexed { k, kind ->
             val share = if (k == kinds.lastIndex) count - kinds.size.let { n -> (count / n) * (n - 1) } else count / kinds.size
-            val c = maxOf(1, if (kind == EnemyKind.SWARMLING) share * 2 else if (kind == EnemyKind.BRUTE) maxOf(1, share / 2) else share)
+            // Flyers ignore the maze, so a full share of them is a dart check rather than a maze test.
+            val c = maxOf(1, when (kind) {
+                EnemyKind.SWARMLING -> share * 2
+                EnemyKind.BRUTE -> maxOf(1, share / 2)
+                EnemyKind.FLYER -> (share * 3 + 4) / 5
+                else -> share
+            })
             groups += WaveGroup(kind.id, c, gapFor(kind), delay)
             delay += c * gapFor(kind) + 1.2f
         }
         if (i == spec.waves - 1 && spec.warlords > 0) groups += WaveGroup(EnemyKind.WARLORD.id, spec.warlords, 6f, delay)
-        WaveDef(((hpScale * (1f + 0.1f * i)) * 100).toInt() / 100f, groups)
+        // Level 1 is the tutorial: its first waves ramp in, so the coach marks' one wall and one spike hold wave 1.
+        val ramp = if (spec.id == 1) minOf(1f, 0.3f + 0.35f * i) else 1f
+        WaveDef(((hpScale * (1f + 0.1f * i) * ramp) * 100).toInt() / 100f, groups)
     }
 
     private fun level(spec: Spec, hpScale: Float, par: Map<String, Par>) = LevelDef(
@@ -118,6 +126,13 @@ class LevelForge {
         return best
     }
 
+    /** True when every thin serpentine clears with at least [hearts] left: the plain maze a player builds after the early levels. */
+    private fun thinClears(lv: LevelDef, d: Difficulty, content: GameContent, hearts: Int = 1) = listOf(0.35f, 0.5f, 0.65f).all { share ->
+        val sim = Sim(RunSpec.forLevel(lv, d), content)
+        Bot(sim, thick = false, wallShare = share).playToEnd()
+        sim.phase == Phase.WON && sim.hearts >= hearts
+    }
+
     @Test
     fun forge() {
         assumeTrue(File("forge.on").exists())
@@ -135,9 +150,13 @@ class LevelForge {
                 val mid = (lo + hi) / 2
                 val lv = level(spec, mid, dummyPar)
                 val o = best(lv, Difficulty.IRON, contentFor(lv))
-                if (o != null && o.sim.hearts >= target) lo = mid else hi = mid
+                // Tuned against the best build on Iron, and also against thin mazes on Standard, so a level
+                // whose best build is a thick maze (jumpers) does not wall off the ordinary player.
+                if (o != null && o.sim.hearts >= target && thinClears(lv, Difficulty.STANDARD, contentFor(lv)) &&
+                    thinClears(lv, Difficulty.WARDEN, contentFor(lv), hearts = 5)) lo = mid else hi = mid
             }
-            var scale = lo
+            // Level 1 is the tutorial: a gentler ramp than the curve, but not free.
+            var scale = if (spec.id == 1) lo * 0.7f else lo
             var result: Map<Difficulty, Outcome>? = null
             while (result == null) {
                 val lv = level(spec, scale, dummyPar)
@@ -147,9 +166,14 @@ class LevelForge {
                 check(empty.phase == Phase.LOST) { "Level ${spec.id} is won with nothing placed" }
                 if (outs.values.all { it != null }) result = outs.mapValues { it.value!! } else scale *= 0.95f
             }
-            val par = result.mapKeys { it.key.id }.mapValues { (_, o) ->
+            val rawPar = result.mapKeys { it.key.id }.mapValues { (_, o) ->
                 val s = o.sim.score()
                 Par(silver = (s * 0.75f).toInt() / 10 * 10, gold = (s * 0.95f).toInt() / 10 * 10)
+            }
+            // The easier setting never asks for a higher score than the harder one.
+            val std = rawPar.getValue(Difficulty.STANDARD.id)
+            val par = rawPar.mapValues { (id, p) ->
+                if (id == Difficulty.WARDEN.id) Par(minOf(p.silver, std.silver), minOf(p.gold, std.gold)) else p
             }
             val lv = level(spec, scale, par)
             File(levelsDir, "level%02d.json".format(spec.id)).writeText(json.encodeToString(LevelDef.serializer(), lv) + "\n")

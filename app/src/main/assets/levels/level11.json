@@ -34,7 +34,7 @@
     ],
     "waves": [
         {
-            "hp": 0.67,
+            "hp": 0.69,
             "groups": [
                 {
                     "enemy": "raider",
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "hp": 0.73,
+            "hp": 0.76,
             "groups": [
                 {
                     "enemy": "raider",
@@ -65,7 +65,7 @@
             ]
         },
         {
-            "hp": 0.8,
+            "hp": 0.83,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -77,11 +77,11 @@
             ]
         },
         {
-            "hp": 0.87,
+            "hp": 0.9,
             "groups": [
                 {
                     "enemy": "flyer",
-                    "count": 6,
+                    "count": 4,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
@@ -90,13 +90,13 @@
                     "enemy": "raider",
                     "count": 7,
                     "gap": 0.9,
-                    "delay": 6.5999994,
+                    "delay": 4.8,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 0.94,
+            "hp": 0.97,
             "groups": [
                 {
                     "enemy": "oilskin",
@@ -115,7 +115,7 @@
             ]
         },
         {
-            "hp": 1.0,
+            "hp": 1.04,
             "groups": [
                 {
                     "enemy": "runner",
@@ -127,7 +127,7 @@
             ]
         },
         {
-            "hp": 1.07,
+            "hp": 1.11,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -138,7 +138,7 @@
                 },
                 {
                     "enemy": "flyer",
-                    "count": 5,
+                    "count": 3,
                     "gap": 0.9,
                     "delay": 4.7,
                     "gate": -1
@@ -147,13 +147,13 @@
                     "enemy": "oilskin",
                     "count": 6,
                     "gap": 0.9,
-                    "delay": 10.4,
+                    "delay": 8.599999,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.14,
+            "hp": 1.18,
             "groups": [
                 {
                     "enemy": "raider",
@@ -164,7 +164,7 @@
                 },
                 {
                     "enemy": "flyer",
-                    "count": 5,
+                    "count": 3,
                     "gap": 0.9,
                     "delay": 5.7,
                     "gate": -1
@@ -173,13 +173,13 @@
                     "enemy": "runner",
                     "count": 7,
                     "gap": 0.6,
-                    "delay": 11.4,
+                    "delay": 9.599999,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.21,
+            "hp": 1.25,
             "groups": [
                 {
                     "enemy": "raider",
@@ -197,7 +197,7 @@
                 },
                 {
                     "enemy": "flyer",
-                    "count": 6,
+                    "count": 4,
                     "gap": 0.9,
                     "delay": 13.199999,
                     "gate": -1
@@ -205,7 +205,7 @@
             ]
         },
         {
-            "hp": 1.27,
+            "hp": 1.32,
             "groups": [
                 {
                     "enemy": "raider",
@@ -226,16 +226,16 @@
     ],
     "par": {
         "warden": {
-            "silver": 2010,
-            "gold": 2540
+            "silver": 1860,
+            "gold": 2360
         },
         "standard": {
-            "silver": 1920,
-            "gold": 2430
+            "silver": 1860,
+            "gold": 2360
         },
         "iron": {
-            "silver": 1650,
-            "gold": 2090
+            "silver": 1590,
+            "gold": 2010
         }
     }
 }

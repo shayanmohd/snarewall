@@ -32,7 +32,7 @@
     "newEnemies": [],
     "waves": [
         {
-            "hp": 1.01,
+            "hp": 0.97,
             "groups": [
                 {
                     "enemy": "raider",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "hp": 1.11,
+            "hp": 1.06,
             "groups": [
                 {
                     "enemy": "runner",
@@ -56,7 +56,7 @@
             ]
         },
         {
-            "hp": 1.22,
+            "hp": 1.16,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -68,11 +68,11 @@
             ]
         },
         {
-            "hp": 1.32,
+            "hp": 1.26,
             "groups": [
                 {
                     "enemy": "flyer",
-                    "count": 7,
+                    "count": 5,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
@@ -81,13 +81,13 @@
                     "enemy": "swarmling",
                     "count": 14,
                     "gap": 0.35,
-                    "delay": 7.5,
+                    "delay": 5.7,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 1.42,
+            "hp": 1.36,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "hp": 1.52,
+            "hp": 1.45,
             "groups": [
                 {
                     "enemy": "frostborn",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "hp": 1.62,
+            "hp": 1.55,
             "groups": [
                 {
                     "enemy": "runner",
@@ -137,7 +137,7 @@
             ]
         },
         {
-            "hp": 1.73,
+            "hp": 1.65,
             "groups": [
                 {
                     "enemy": "digger",
@@ -163,7 +163,7 @@
             ]
         },
         {
-            "hp": 1.83,
+            "hp": 1.75,
             "groups": [
                 {
                     "enemy": "frostborn",
@@ -189,7 +189,7 @@
             ]
         },
         {
-            "hp": 1.93,
+            "hp": 1.84,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -208,7 +208,7 @@
             ]
         },
         {
-            "hp": 2.03,
+            "hp": 1.94,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -229,16 +229,16 @@
     ],
     "par": {
         "warden": {
-            "silver": 2300,
-            "gold": 2910
+            "silver": 2330,
+            "gold": 2950
         },
         "standard": {
-            "silver": 2250,
-            "gold": 2860
+            "silver": 2330,
+            "gold": 2950
         },
         "iron": {
-            "silver": 2030,
-            "gold": 2570
+            "silver": 2010,
+            "gold": 2550
         }
     }
 }

@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.mohdshayan.snarewall.audio.Sfx
 import com.mohdshayan.snarewall.di.ServiceLocator
@@ -44,7 +45,7 @@ data class BoardMessage(val text: String, val warning: Boolean, val id: Long)
  * user action. Saves the run at wave boundaries and after build-phase placements, so a process kill
  * mid-wave relaunches at the start of that wave.
  */
-class BoardViewModel(app: Application, val args: Board) : AndroidViewModel(app) {
+class BoardViewModel(app: Application, val args: Board, savedState: SavedStateHandle) : AndroidViewModel(app) {
 
     private val repo = ServiceLocator.progress
     private val prefs = ServiceLocator.appPrefs
@@ -54,7 +55,8 @@ class BoardViewModel(app: Application, val args: Board) : AndroidViewModel(app) 
         private set
     var level: LevelDef? = null
         private set
-    val dateKey: String? = if (args.daily) args.dateKey ?: DailyGenerator.todayKey() else null
+    private val launch = RunLaunch(args, savedState)
+    val dateKey: String? = launch.dateKey
     var region: String = "chalk"
         private set
 
@@ -174,7 +176,7 @@ class BoardViewModel(app: Application, val args: Board) : AndroidViewModel(app) 
         }
         var fresh = Sim(spec, c)
         var resumedAt = -1
-        if (!args.fresh) {
+        if (!launch.ignoreSave) {
             val row = withContext(Dispatchers.IO) { repo.resumeRow() }
             if (row != null) {
                 val save = SaveCodec.decodeRun(row.stateJson)
@@ -226,6 +228,7 @@ class BoardViewModel(app: Application, val args: Board) : AndroidViewModel(app) 
         syncHud(s)
         refreshRoutes(s)
         saveBoundary()
+        launch.started()
     }
 
     /** Starts the run again from wave 1. */
@@ -519,7 +522,7 @@ class BoardViewModel(app: Application, val args: Board) : AndroidViewModel(app) 
             show("Undid last placement", warning = false)
             afterChange(s)
         } else {
-            show("Nothing placed this wave", warning = true)
+            show(if (s.phase == Phase.WAVE) "Undo is for the build phase. Sell instead." else "Nothing to undo", warning = true)
         }
     }
 

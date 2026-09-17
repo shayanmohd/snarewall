@@ -6,7 +6,7 @@
 
 ## App name
 <!-- at most 30 characters. verify.sh counts everything in this section except comments. -->
-Maze Tower Defense Offline
+Snarewall: Maze Tower Defense
 
 ## Short description
 <!-- at most 80 characters, one line, no trailing period. -->
@@ -27,7 +27,7 @@ WHAT YOU GET
 - 10 traps, each with one upgrade, and 4 visible combos
 - 12 enemy types that punish lazy mazes: diggers tunnel under a long detour, jumpers hop a wall one block thick, flyers ignore walls, sappers knock one down
 - A daily endless map built from the UTC date, so everyone playing that day gets the same board, traps and waves, with your best score kept for every day
-- 1x, 2x and 3x speed, pause and build at any time, and undo for placements made since you last sent a wave
+- 1x, 2x and 3x speed, pause and build at any time, and undo for anything placed before you send the wave
 - Your run is saved at the start of every wave, so closing the app never costs you the level
 - Export your save file through the share sheet and import it again from any file
 
@@ -47,7 +47,7 @@ First release: 15 handmade levels in 3 regions, 3 difficulties with medals, 10 t
 Games, Strategy
 
 ## Content rating
-IARC long game questionnaire. See SHIP-READY.md for the exact answers: fantasy violence against non-human fantasy creatures, shown as small tinted sprites, no blood, no gore, no death animation beyond the sprite disappearing. No user interaction, no purchases, no gambling. Expected roughly ESRB Everyone 10+, PEGI 7.
+IARC long game questionnaire. See SHIP-READY.md for the exact answers: fantasy violence against stylised fantasy humanoids and creatures (raiders, sappers, a warlord, plus a bat and a crab-like swarmling), shown as small one-colour 16 pixel sprites, no blood, no gore, no death animation beyond the sprite disappearing. No user interaction, no purchases, no gambling. Expected roughly ESRB Everyone 10+; PEGI 7 or 12 (USK 6 or 12) depending on how IARC scores human-like targets.
 
 ## Data safety declaration
 <!-- These answers are right only while the manifest has no INTERNET permission and no analytics SDK. -->

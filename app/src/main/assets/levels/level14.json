@@ -32,7 +32,7 @@
     "newEnemies": [],
     "waves": [
         {
-            "hp": 0.46,
+            "hp": 0.39,
             "groups": [
                 {
                     "enemy": "raider",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "hp": 0.51,
+            "hp": 0.43,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -56,11 +56,11 @@
             ]
         },
         {
-            "hp": 0.55,
+            "hp": 0.47,
             "groups": [
                 {
                     "enemy": "flyer",
-                    "count": 14,
+                    "count": 9,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
@@ -68,7 +68,7 @@
             ]
         },
         {
-            "hp": 0.6,
+            "hp": 0.51,
             "groups": [
                 {
                     "enemy": "sapper",
@@ -79,7 +79,7 @@
                 },
                 {
                     "enemy": "flyer",
-                    "count": 8,
+                    "count": 5,
                     "gap": 0.9,
                     "delay": 7.5,
                     "gate": -1
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "hp": 0.65,
+            "hp": 0.55,
             "groups": [
                 {
                     "enemy": "oilskin",
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "hp": 0.69,
+            "hp": 0.59,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "hp": 0.74,
+            "hp": 0.63,
             "groups": [
                 {
                     "enemy": "sapper",
@@ -136,7 +136,7 @@
                 },
                 {
                     "enemy": "flyer",
-                    "count": 9,
+                    "count": 6,
                     "gap": 0.9,
                     "delay": 9.299999,
                     "gate": -1
@@ -144,7 +144,33 @@
             ]
         },
         {
-            "hp": 0.79,
+            "hp": 0.67,
+            "groups": [
+                {
+                    "enemy": "flyer",
+                    "count": 4,
+                    "gap": 0.9,
+                    "delay": 0.0,
+                    "gate": -1
+                },
+                {
+                    "enemy": "brute",
+                    "count": 3,
+                    "gap": 1.6,
+                    "delay": 4.8,
+                    "gate": -1
+                },
+                {
+                    "enemy": "oilskin",
+                    "count": 7,
+                    "gap": 0.9,
+                    "delay": 10.8,
+                    "gate": -1
+                }
+            ]
+        },
+        {
+            "hp": 0.71,
             "groups": [
                 {
                     "enemy": "flyer",
@@ -154,46 +180,20 @@
                     "gate": -1
                 },
                 {
-                    "enemy": "brute",
-                    "count": 3,
-                    "gap": 1.6,
-                    "delay": 6.5999994,
-                    "gate": -1
-                },
-                {
-                    "enemy": "oilskin",
-                    "count": 7,
-                    "gap": 0.9,
-                    "delay": 12.599999,
-                    "gate": -1
-                }
-            ]
-        },
-        {
-            "hp": 0.83,
-            "groups": [
-                {
-                    "enemy": "flyer",
-                    "count": 10,
-                    "gap": 0.9,
-                    "delay": 0.0,
-                    "gate": -1
-                },
-                {
                     "enemy": "shieldbearer",
                     "count": 10,
                     "gap": 0.9,
-                    "delay": 10.2,
+                    "delay": 6.5999994,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 0.88,
+            "hp": 0.75,
             "groups": [
                 {
                     "enemy": "flyer",
-                    "count": 7,
+                    "count": 5,
                     "gap": 0.9,
                     "delay": 0.0,
                     "gate": -1
@@ -202,20 +202,20 @@
                     "enemy": "sapper",
                     "count": 7,
                     "gap": 0.9,
-                    "delay": 7.5,
+                    "delay": 5.7,
                     "gate": -1
                 },
                 {
                     "enemy": "shieldbearer",
                     "count": 7,
                     "gap": 0.9,
-                    "delay": 15.0,
+                    "delay": 13.2,
                     "gate": -1
                 }
             ]
         },
         {
-            "hp": 0.93,
+            "hp": 0.79,
             "groups": [
                 {
                     "enemy": "jumper",
@@ -234,7 +234,7 @@
             ]
         },
         {
-            "hp": 0.97,
+            "hp": 0.83,
             "groups": [
                 {
                     "enemy": "oilskin",
@@ -255,16 +255,16 @@
     ],
     "par": {
         "warden": {
-            "silver": 2310,
-            "gold": 2930
+            "silver": 2130,
+            "gold": 2700
         },
         "standard": {
-            "silver": 2180,
-            "gold": 2760
+            "silver": 2130,
+            "gold": 2700
         },
         "iron": {
-            "silver": 2000,
-            "gold": 2530
+            "silver": 1810,
+            "gold": 2290
         }
     }
 }

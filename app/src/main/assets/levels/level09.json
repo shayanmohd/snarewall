@@ -32,7 +32,7 @@
     ],
     "waves": [
         {
-            "hp": 1.03,
+            "hp": 0.82,
             "groups": [
                 {
                     "enemy": "raider",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "hp": 1.13,
+            "hp": 0.91,
             "groups": [
                 {
                     "enemy": "raider",
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "hp": 1.24,
+            "hp": 0.99,
             "groups": [
                 {
                     "enemy": "sapper",
@@ -75,7 +75,7 @@
             ]
         },
         {
-            "hp": 1.34,
+            "hp": 1.07,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "hp": 1.45,
+            "hp": 1.16,
             "groups": [
                 {
                     "enemy": "swarmling",
@@ -99,7 +99,7 @@
             ]
         },
         {
-            "hp": 1.55,
+            "hp": 1.24,
             "groups": [
                 {
                     "enemy": "digger",
@@ -118,7 +118,7 @@
             ]
         },
         {
-            "hp": 1.65,
+            "hp": 1.32,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -144,7 +144,7 @@
             ]
         },
         {
-            "hp": 1.76,
+            "hp": 1.41,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -170,7 +170,7 @@
             ]
         },
         {
-            "hp": 1.86,
+            "hp": 1.49,
             "groups": [
                 {
                     "enemy": "raider",
@@ -196,7 +196,7 @@
             ]
         },
         {
-            "hp": 1.96,
+            "hp": 1.57,
             "groups": [
                 {
                     "enemy": "sapper",
@@ -232,8 +232,8 @@
             "gold": 2540
         },
         "iron": {
-            "silver": 1830,
-            "gold": 2310
+            "silver": 2010,
+            "gold": 2540
         }
     }
 }

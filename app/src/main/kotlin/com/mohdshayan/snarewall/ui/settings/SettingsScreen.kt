@@ -88,7 +88,7 @@ class SettingsViewModel(app: Application) : AndroidViewModel(app) {
     fun export(launch: (Intent) -> Unit) = viewModelScope.launch {
         try {
             launch(ServiceLocator.saveTransfer.exportIntent())
-            status = "Save exported" to false
+            status = "Save file ready to share" to false
         } catch (e: Exception) {
             status = "The save file could not be written. Free some storage and export again." to true
         }
@@ -180,7 +180,7 @@ fun SettingsScreen(onBack: () -> Unit, onLicences: () -> Unit, vm: SettingsViewM
 
             Section("Save file")
             Text(
-                "Your progress lives only on this phone. Export it to keep a copy or move it to another device.",
+                "Your progress is kept on this phone, and in your Android device backup if that is on. Export it to keep your own copy or move it to another device.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = c.lichen,
                 modifier = Modifier.widthIn(max = 520.dp),
@@ -204,7 +204,7 @@ fun SettingsScreen(onBack: () -> Unit, onLicences: () -> Unit, vm: SettingsViewM
             }
             Spacer(Modifier.height(8.dp))
             Text(
-                "No ads, no account, no internet permission. Nothing you do in Snarewall leaves this phone unless you send a save file.",
+                "No ads, no account, no internet permission. Snarewall itself sends nothing anywhere. A save file or a daily result leaves only when you share it, and Android backup may include your progress.",
                 style = MaterialTheme.typography.bodySmall,
                 color = c.lichen,
                 modifier = Modifier.widthIn(max = 520.dp),

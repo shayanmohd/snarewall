@@ -32,7 +32,7 @@
     ],
     "waves": [
         {
-            "hp": 0.68,
+            "hp": 0.59,
             "groups": [
                 {
                     "enemy": "raider",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "hp": 0.75,
+            "hp": 0.65,
             "groups": [
                 {
                     "enemy": "raider",
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "hp": 0.82,
+            "hp": 0.71,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -75,7 +75,7 @@
             ]
         },
         {
-            "hp": 0.88,
+            "hp": 0.77,
             "groups": [
                 {
                     "enemy": "brute",
@@ -94,7 +94,7 @@
             ]
         },
         {
-            "hp": 0.95,
+            "hp": 0.83,
             "groups": [
                 {
                     "enemy": "brute",
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "hp": 1.02,
+            "hp": 0.89,
             "groups": [
                 {
                     "enemy": "raider",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "hp": 1.09,
+            "hp": 0.95,
             "groups": [
                 {
                     "enemy": "shieldbearer",
@@ -151,7 +151,7 @@
             ]
         },
         {
-            "hp": 1.16,
+            "hp": 1.01,
             "groups": [
                 {
                     "enemy": "raider",
@@ -177,7 +177,7 @@
             ]
         },
         {
-            "hp": 1.23,
+            "hp": 1.07,
             "groups": [
                 {
                     "enemy": "shieldbearer",

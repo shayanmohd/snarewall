@@ -70,6 +70,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mohdshayan.snarewall.game.Grid
 import com.mohdshayan.snarewall.game.Phase
@@ -94,7 +95,7 @@ import com.mohdshayan.snarewall.ui.theme.SheetShape
 @Composable
 fun BoardScreen(args: Board, onQuit: () -> Unit, onFinished: (Result) -> Unit) {
     val app = LocalContext.current.applicationContext as Application
-    val vm: BoardViewModel = viewModel(key = "board-${args.levelId}-${args.difficulty}-${args.daily}") { BoardViewModel(app, args) }
+    val vm: BoardViewModel = viewModel(key = "board-${args.levelId}-${args.difficulty}-${args.daily}") { BoardViewModel(app, args, createSavedStateHandle()) }
     val sim = vm.sim
     val finished = vm.finished
     val onFinishedState by rememberUpdatedState(onFinished)

@@ -1,12 +1,12 @@
 [
-  {"id": "spike", "cost": 5, "period": 0.5, "damage": 5, "upgradedDamage": 8, "note": "Stabs every enemy standing on it."},
-  {"id": "oil", "cost": 4, "period": 1.0, "damage": 0, "upgradedDamage": 0, "effect": 0.6, "upgradedEffect": 0.45, "note": "Slows enemies crossing it and makes them burn hotter."},
-  {"id": "ember", "cost": 8, "period": 1.0, "damage": 6, "upgradedDamage": 9, "effect": 3, "upgradedEffect": 4, "note": "Scorches its tile and sets enemies burning."},
-  {"id": "frost", "cost": 6, "period": 1.0, "damage": 0, "upgradedDamage": 0, "effect": 2, "upgradedEffect": 3, "note": "Chills enemies to half speed."},
+  {"id": "spike", "cost": 6, "period": 0.5, "damage": 3.2, "upgradedDamage": 6, "note": "Stabs every enemy standing on it."},
+  {"id": "oil", "cost": 4, "period": 1.0, "damage": 0, "upgradedDamage": 0, "effect": 0.6, "upgradedEffect": 0.4, "note": "Slows enemies crossing it and makes them burn hotter."},
+  {"id": "ember", "cost": 8, "period": 1.0, "damage": 6, "upgradedDamage": 11, "effect": 3, "upgradedEffect": 5, "note": "Scorches its tile and sets enemies burning."},
+  {"id": "frost", "cost": 6, "period": 1.0, "damage": 0, "upgradedDamage": 0, "effect": 2, "upgradedEffect": 3.5, "note": "Chills enemies to half speed."},
   {"id": "snare", "cost": 5, "period": 4.0, "damage": 0, "upgradedDamage": 0, "effect": 1.5, "upgradedEffect": 2.5, "note": "Holds every enemy on it in place."},
-  {"id": "pusher", "cost": 6, "period": 2.0, "damage": 3, "upgradedDamage": 5, "note": "Shoves an enemy one tile along its face."},
-  {"id": "deadfall", "cost": 10, "period": 3.5, "damage": 30, "upgradedDamage": 45, "note": "Drops a stone on the tile it faces."},
-  {"id": "dart", "cost": 8, "period": 0.6, "damage": 4, "upgradedDamage": 6, "note": "Fires down its line, over walls, and hits flyers."},
-  {"id": "hammer", "cost": 9, "period": 2.5, "damage": 14, "upgradedDamage": 21, "note": "Strikes the tile it faces. Chilled enemies take triple."},
-  {"id": "grinder", "cost": 12, "period": 0.25, "damage": 2.5, "upgradedDamage": 3.75, "note": "Grinds the tile it faces and ignores armour."}
+  {"id": "pusher", "cost": 4, "period": 2.0, "damage": 3, "upgradedDamage": 6, "note": "Shoves an enemy one tile along its face."},
+  {"id": "deadfall", "cost": 10, "period": 2.5, "damage": 30, "upgradedDamage": 55, "note": "Drops a stone on the tile it faces."},
+  {"id": "dart", "cost": 8, "period": 0.6, "damage": 2.6, "upgradedDamage": 5, "note": "Fires down its line, over walls, and hits flyers."},
+  {"id": "hammer", "cost": 7, "period": 2.5, "damage": 14, "upgradedDamage": 26, "note": "Strikes the tile it faces. Chilled enemies take triple."},
+  {"id": "grinder", "cost": 9, "period": 0.25, "damage": 2.5, "upgradedDamage": 4.5, "note": "Grinds the tile it faces and ignores armour."}
 ]

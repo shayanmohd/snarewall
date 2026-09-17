@@ -204,7 +204,7 @@ class Sim(val spec: RunSpec, val content: GameContent) {
         wallError(tile)?.let { return it }
         walls[tile] = true
         coin -= WALL_COST
-        undo += UndoEntry(UndoEntry.WALL, tile, WALL_COST)
+        if (phase == Phase.BUILD) undo += UndoEntry(UndoEntry.WALL, tile, WALL_COST)
         onWallsChanged()
         emit(EV_PLACE, tile, -1)
         return null
@@ -236,7 +236,7 @@ class Sim(val spec: RunSpec, val content: GameContent) {
         t.spent = cost
         coin -= cost
         traps += t
-        undo += UndoEntry(UndoEntry.TRAP, tile, cost)
+        if (phase == Phase.BUILD) undo += UndoEntry(UndoEntry.TRAP, tile, cost)
         onTrapsChanged()
         emit(EV_PLACE, tile, kind.ordinal)
         return null
@@ -259,7 +259,7 @@ class Sim(val spec: RunSpec, val content: GameContent) {
         t.upgraded = true
         t.spent += cost
         coin -= cost
-        undo += UndoEntry(UndoEntry.UPGRADE, tile, cost)
+        if (phase == Phase.BUILD) undo += UndoEntry(UndoEntry.UPGRADE, tile, cost)
         emit(EV_UPGRADE, tile, t.kind.ordinal)
         return null
     }
@@ -311,7 +311,7 @@ class Sim(val spec: RunSpec, val content: GameContent) {
         undo.removeAll { it.tile == tile }
     }
 
-    /** Takes back the last placement made since the current wave was sent, for its full cost. */
+    /** Takes back the last placement made in this build phase, for its full cost. Placements made while a wave runs sell for half instead. */
     fun undoLast(): Boolean {
         if (phase == Phase.WON || phase == Phase.LOST) return false
         while (undo.isNotEmpty()) {
@@ -461,11 +461,13 @@ class Sim(val spec: RunSpec, val content: GameContent) {
             val t = traps[k]
             if (t.flash > 0f) t.flash -= DT
             updateTrap(t)
+            // A pusher can shove an enemy into the keep, and that leak can end the run.
+            if (phase != Phase.WAVE) return
         }
         for (e in enemies) {
             if (e.active && e.hp <= 0f) kill(e)
         }
-        if (spawnCursor >= spawnTimes.size && alive == 0) waveCleared()
+        if (phase == Phase.WAVE && spawnCursor >= spawnTimes.size && alive == 0) waveCleared()
     }
 
     private fun waveCleared() {
@@ -479,6 +481,8 @@ class Sim(val spec: RunSpec, val content: GameContent) {
             waveIndex++
             phase = Phase.BUILD
         }
+        // Undo is for the build phase just gone; anything placed during the wave has already worked.
+        undo.clear()
     }
 
     private fun spawn(kind: EnemyKind, gate: Int, hpScale: Float) {

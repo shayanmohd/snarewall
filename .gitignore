@@ -18,6 +18,8 @@ keystore.properties
 *.keystore
 # research record: competitor analysis and sales estimates stay private
 IDEA.json
+BLUEPRINT.md
 SHIP-READY.md
 store/smoke-*.png
 app/forge.on
+app/shots.on

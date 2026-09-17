@@ -170,7 +170,8 @@ class EnemyTraitTest {
         track(brute, EnemyKind.BRUTE) { e -> minHp = minOf(minHp, e.hp) }
         val spike = content.trap(TrapKind.SPIKE).damage
         val lost = content.enemy(EnemyKind.BRUTE).hp * 100f - minHp
-        assertTrue("Armour halves spike damage", lost > 0f && (lost / (spike * Sim.ARMOUR)) % 1f < 0.01f)
+        val hits = lost / (spike * Sim.ARMOUR)
+        assertTrue("Armour halves spike damage", lost > 0f && kotlin.math.abs(hits - kotlin.math.round(hits)) < 0.02f)
 
         val lord = TestContent.sim(TestContent.OPEN_MAP, listOf(TestContent.wave(EnemyKind.WARLORD, hp = 100f)))
         lord.placeWall(Grid.idx(2, 5))

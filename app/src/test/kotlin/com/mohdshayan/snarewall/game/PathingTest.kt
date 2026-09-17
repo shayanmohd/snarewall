@@ -116,8 +116,9 @@ class PathingTest {
         assertNull(sim.placeTrap(TrapKind.SPIKE, Grid.idx(3, 5)))
         sim.sendWave()
         assertTrue("Undo does not reach past a sent wave", !sim.undoLast())
-        assertEquals(2, sim.sell(Grid.idx(3, 5)))
-        assertEquals(97, sim.coin)
+        val spike = sim.trapCost(TrapKind.SPIKE)
+        assertEquals(spike / 2, sim.sell(Grid.idx(3, 5)))
+        assertEquals(100 - spike + spike / 2, sim.coin)
     }
 
     @Test

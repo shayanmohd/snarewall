@@ -154,7 +154,18 @@ class ShotSeeds {
         assumeTrue(File("shots.on").exists())
         // 1: Salt Mine, a maze under way with coin left for more walls.
         var best: Triple<Sim, Int, Int>? = null
-        val prefix = reach(7, 2, withBuild = false)
+        // Prefixes: the reference run, then a light thin maze played wave by wave, both through the real Sim.
+        val prefixes = listOf(2, 1, 3, 4).map { { reach(7, it, withBuild = false) } } + listOf(1, 2, 3).map { w ->
+            {
+                val sim = Sim(RunSpec.forLevel(content.level(7)!!, Difficulty.STANDARD), content)
+                val bot = Bot(sim, thick = false, wallShare = 0.2f)
+                while (sim.waveIndex < w) { bot.playBuildPhase(); sim.sendWave(); TestContent.runWave(sim); check(sim.phase == Phase.BUILD) }
+                sim
+            }
+        }
+        for (make in prefixes) {
+        if (best != null) break
+        val prefix = make()
         for (g1 in -1 until Grid.W) for (b in 0 until Grid.W) for (c in b + 1 until Grid.W) {
             val trial = copy(prefix)
             var ok = true
@@ -173,8 +184,24 @@ class ShotSeeds {
             for (t in 0 until Grid.N) {
                 if (trial.wallError(t) != null || Grid.y(t) !in 1..9) continue
                 val d = astar.path(trial.walls, trial.layout.gates[0], t, path) - 1 - base
-                if (d in 4..8 && (best == null || d > best.third)) best = Triple(trial, t, d)
+                // A clear detour: prefer +8, then the nearest to it.
+                if (d in 3..12 && (best == null || kotlin.math.abs(d - 8) < kotlin.math.abs(best.third - 8))) best = Triple(trial, t, d)
             }
+        }
+        }
+        // The reference maze itself, when the row template does not fit it.
+        for (w1 in 1..6) {
+            if (best != null) break
+            val trial = reach(7, w1, withBuild = false)
+            val base = trial.field.dist[trial.layout.gates[0]]
+            val astar = AStar(trial.layout)
+            val path = IntArray(Grid.N)
+            for (t in 0 until Grid.N) {
+                if (trial.wallError(t) != null || Grid.y(t) !in 1..9) continue
+                val d = astar.path(trial.walls, trial.layout.gates[0], t, path) - 1 - base
+                if (d in 2..12 && (best == null || kotlin.math.abs(d - 8) < kotlin.math.abs(best.third - 8))) best = Triple(trial, t, d)
+            }
+            println("seed 1 fallback wave ${w1 + 1}: coin ${trial.coin} walls ${trial.walls.count { it }} best ${best?.third}")
         }
         val (s1, ghost, delta) = best!!
         println("ghost ${Grid.x(ghost)},${Grid.y(ghost)} +$delta")
@@ -186,17 +213,21 @@ class ShotSeeds {
             if (addPushDeadfall(sim)) sim.also { println("combo on level $id wave ${w + 1}") } else null
         }
         write("seed-2-combo", s2.snapshot())
-        // 3: diggers and jumpers against a maze.
-        // A thin serpentine on Pillar Hall, the kind of lazy maze diggers and jumpers punish.
+        // 3: diggers and jumpers against a maze. Played, not edited: a thin serpentine bot plays Pillar Hall
+        // on Standard through the real Sim, wave by wave, and the save is its own build-phase snapshot at the
+        // start of the first wave that sends both diggers and jumpers.
         val lv7 = content.level(7)!!
-        val thin = Sim(RunSpec.forLevel(lv7, Difficulty.STANDARD), content)
-        for ((y, gap) in listOf(3 to 7, 6 to 0, 9 to 7)) for (x in 0 until Grid.W) {
-            val t = Grid.idx(x, y)
-            if (x != gap && !thin.layout.obstacle[t]) check(thin.placeWall(t) == null) { "wall $x,$y" }
-        }
-        for (t in listOf(Grid.idx(6, 10), Grid.idx(5, 10), Grid.idx(4, 10))) check(thin.placeTrap(TrapKind.SPIKE, t) == null)
         val w3 = lv7.waves.indices.first { i -> lv7.waves[i].groups.map { it.enemy }.let { "digger" in it && "jumper" in it } }
-        val s3 = thin.snapshot().copy(wave = w3, coin = 23, hearts = 16, kills = 71)
+        val thin = Sim(RunSpec.forLevel(lv7, Difficulty.STANDARD), content)
+        val player = Bot(thin, thick = false, wallShare = 0.5f)
+        while (thin.waveIndex < w3) {
+            player.playBuildPhase()
+            check(thin.sendWave())
+            TestContent.runWave(thin)
+            check(thin.phase == Phase.BUILD) { "the thin maze lost level 7 before wave ${w3 + 1}" }
+        }
+        player.playBuildPhase()
+        val s3 = thin.snapshot()
         Sim(RunSpec.forLevel(lv7, Difficulty.STANDARD), content).restore(s3)
         write("seed-3-diggers", s3)
         println("level 7 wave ${w3 + 1}: ${lv7.waves[w3].groups.map { "${it.count} ${it.enemy} delay ${it.delay}" }}")

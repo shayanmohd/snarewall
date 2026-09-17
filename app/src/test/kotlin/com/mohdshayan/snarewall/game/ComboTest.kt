@@ -60,7 +60,9 @@ class ComboTest {
 
     @Test
     fun snareNextToSpikesHoldsEnemiesOnTheSpikes() {
-        val sim = TestContent.sim(TestContent.OPEN_MAP, listOf(TestContent.wave(EnemyKind.RAIDER, hp = 0.7f)))
+        // Raider hp scaled to the spike's damage, so the test is about the hold and not the table.
+        val hp = 0.7f * TestContent.content.trap(TrapKind.SPIKE).damage / 5f
+        val sim = TestContent.sim(TestContent.OPEN_MAP, listOf(TestContent.wave(EnemyKind.RAIDER, hp = hp)))
         assertNull(sim.placeTrap(TrapKind.SPIKE, Grid.idx(3, 5)))
         assertNull(sim.placeTrap(TrapKind.SNARE, Grid.idx(2, 5)))
         assertTrue(sim.links.any { it.kind == ComboKind.SNARE_SPIKE })
@@ -68,7 +70,7 @@ class ComboTest {
         assertTrue(ComboKind.SNARE_SPIKE in combos(sim))
         assertEquals("Held on spikes, the raider dies", 1, sim.kills)
 
-        val control = TestContent.sim(TestContent.OPEN_MAP, listOf(TestContent.wave(EnemyKind.RAIDER, hp = 0.7f)))
+        val control = TestContent.sim(TestContent.OPEN_MAP, listOf(TestContent.wave(EnemyKind.RAIDER, hp = hp)))
         assertNull(control.placeTrap(TrapKind.SPIKE, Grid.idx(3, 5)))
         control.sendWave()
         TestContent.runWave(control)
