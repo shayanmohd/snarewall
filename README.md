@@ -1,6 +1,6 @@
 # Snarewall
 
-Snarewall is a paid, fully offline maze tower defense for Android, for players who like to plan before they fight. Every level is open floor: the player places walls, a live route preview (the exact path the enemies will walk) redraws while the wall is still under the finger, and ten traps chain into four visible combos against twelve enemy types, including diggers and jumpers that punish thin mazes. Fifteen handmade levels in three regions, three difficulties with par medals, a daily endless map generated from the UTC date, save file export and import, light and dark themes and a two-pane tablet layout.
+Snarewall is a paid, fully offline maze tower defense for Android, for players who like to plan before they fight. Every level is open ground with a few fixed rocks: the player places walls, a live route preview (the exact path the enemies will walk) redraws while the wall is still under the finger, and ten traps chain into four visible combos against twelve enemy types, including diggers and jumpers that punish thin mazes. Fifteen handmade levels in three regions, three difficulties with par medals, a daily endless map generated from the UTC date, save file export and import, light and dark themes and a two-pane tablet layout.
 
 Everything runs on the device. The app declares no network permission and sends nothing anywhere.
 
