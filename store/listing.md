@@ -2,7 +2,7 @@
 
 **Package:** `com.mohdshayan.snarewall`
 **Developer account:** SocialSure Private Limited
-**Pricing:** Paid, one-time price (USD 2.99, INR 149), no in-app purchases, no advertising
+**Pricing:** Paid, one-time price (USD 2.99, INR 150), no in-app purchases, no advertising
 
 ## App name
 <!-- at most 30 characters. verify.sh counts everything in this section except comments. -->
