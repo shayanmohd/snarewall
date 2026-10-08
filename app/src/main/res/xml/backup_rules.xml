@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<full-backup-content />
+<!-- Android 11 and older. Everything is backed up as before, the prior-buyer latch
+     (shared_prefs/legacy_owner.xml) with the database, except this phone's copy of Google Play's
+     answer about the full game: a new phone reads that back from Google Play. -->
+<full-backup-content>
+    <exclude domain="file" path="datastore/entitlement.preferences_pb" />
+</full-backup-content>

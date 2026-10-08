@@ -21,18 +21,24 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.heading
@@ -42,6 +48,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.mohdshayan.snarewall.game.Access
 import com.mohdshayan.snarewall.game.Difficulty
 import com.mohdshayan.snarewall.game.EnemyKind
 import com.mohdshayan.snarewall.game.GameContent
@@ -67,7 +74,7 @@ import com.mohdshayan.snarewall.ui.theme.RadiusMd
 import com.mohdshayan.snarewall.ui.theme.SheetShape
 
 @Composable
-fun LevelsScreen(onBack: () -> Unit, onStart: (Board) -> Unit, vm: LevelsViewModel = viewModel()) {
+fun LevelsScreen(onBack: () -> Unit, onStart: (Board) -> Unit, onUnlock: () -> Unit, vm: LevelsViewModel = viewModel()) {
     val state by vm.state.collectAsStateWithLifecycle()
     var briefing by rememberSaveable { mutableStateOf(-1) }
     Column(Modifier.fillMaxSize()) {
@@ -84,7 +91,8 @@ fun LevelsScreen(onBack: () -> Unit, onStart: (Board) -> Unit, vm: LevelsViewMod
                 StatePanel("Levels could not be read.", "Reinstalling Snarewall restores the bundled levels.", actionLabel = "Back to home", onAction = onBack)
             }
             is LevelsState.Ready -> {
-                LevelsBody(s, onDifficulty = vm::setDifficulty, onOpen = { briefing = it })
+                // A Salt Mine or Fen Causeway tile opens the Unlock screen for a free player, even before level 5 is cleared.
+                LevelsBody(s, onDifficulty = vm::setDifficulty, onOpen = { id -> if (Access.levelOpen(id, s.owned)) briefing = id else onUnlock() })
                 val lv = s.content.level(briefing)
                 if (lv != null) {
                     BriefingSheet(
@@ -93,6 +101,7 @@ fun LevelsScreen(onBack: () -> Unit, onStart: (Board) -> Unit, vm: LevelsViewMod
                         difficulty = s.difficulty,
                         row = s.rows.firstOrNull { it.levelId == lv.id && it.difficulty == s.difficulty },
                         resume = s.resume,
+                        owned = s.owned,
                         onDismiss = { briefing = -1 },
                         onStart = { fresh ->
                             briefing = -1
@@ -136,11 +145,19 @@ private fun LevelsBody(s: LevelsState.Ready, onDifficulty: (String) -> Unit, onO
                     val row = s.rows.firstOrNull { it.levelId == lv.id && it.difficulty == s.difficulty }
                     val medal = Scoring.Medal.entries.firstOrNull { it.id == row?.medal } ?: Scoring.Medal.NONE
                     val open = ProgressRules.unlocked(lv.id, s.rows)
-                    LevelTile(lv, medal, open, Modifier.weight(1f)) { onOpen(lv.id) }
+                    val full = !Access.levelOpen(lv.id, s.owned)
+                    LevelTile(lv, medal, open, full, Modifier.weight(1f)) { onOpen(lv.id) }
                 }
             }
             val locked = levels.firstOrNull { !ProgressRules.unlocked(it.id, s.rows) }
-            if (locked != null) {
+            if (levels.isNotEmpty() && levels.none { Access.levelOpen(it.id, s.owned) }) {
+                Text(
+                    "In the full game",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = c.lichen,
+                    modifier = Modifier.padding(top = 6.dp),
+                )
+            } else if (locked != null) {
                 Text(
                     "Clear level ${locked.id - 1} first",
                     style = MaterialTheme.typography.bodySmall,
@@ -179,34 +196,79 @@ private fun DifficultyControl(selected: String, onSelect: (String) -> Unit) {
     }
 }
 
+/** [full] is a level in the full game for a free player: the locked look, its name and a lock, and a tap opens the Unlock screen. */
 @Composable
-private fun LevelTile(lv: LevelDef, medal: Scoring.Medal, open: Boolean, modifier: Modifier, onClick: () -> Unit) {
+private fun LevelTile(lv: LevelDef, medal: Scoring.Medal, open: Boolean, full: Boolean, modifier: Modifier, onClick: () -> Unit) {
     val c = LocalSnareColors.current
+    val lit = open && !full
     Column(
         modifier
             .aspectRatio(0.72f)
-            .background(if (open) c.flag else c.limestone, RoundedCornerShape(RadiusMd))
-            .border(1.dp, c.lichen.copy(alpha = if (open) 0.3f else 0.2f), RoundedCornerShape(RadiusMd))
-            .clickable(enabled = open, role = Role.Button, onClick = onClick)
+            .background(if (lit) c.flag else c.limestone, RoundedCornerShape(RadiusMd))
+            .border(1.dp, c.lichen.copy(alpha = if (lit) 0.3f else 0.2f), RoundedCornerShape(RadiusMd))
+            .clickable(enabled = open || full, role = Role.Button, onClick = onClick)
             .semantics(mergeDescendants = true) {
-                contentDescription = if (open) "Level ${lv.id}, ${lv.name}, ${medalLabel(medal)}" else "Level ${lv.id}, locked. Clear level ${lv.id - 1} first"
+                contentDescription = when {
+                    full -> "Level ${lv.id}, ${lv.name}, in the full game"
+                    open -> "Level ${lv.id}, ${lv.name}, ${medalLabel(medal)}"
+                    else -> "Level ${lv.id}, locked. Clear level ${lv.id - 1} first"
+                }
             }
             .padding(6.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween,
     ) {
-        Text("${lv.id}", style = HudStyle, color = if (open) c.ink else c.lichen.copy(alpha = 0.7f))
-        Text(
-            if (open) lv.name else "Locked",
-            style = MaterialTheme.typography.labelSmall,
-            color = c.lichen,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-            textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text("${lv.id}", style = HudStyle, color = if (lit) c.ink else c.lichen.copy(alpha = 0.7f))
+            if (full) {
+                Spacer(Modifier.width(2.dp))
+                Icon(Icons.Rounded.Lock, contentDescription = null, tint = c.lichen, modifier = Modifier.size(12.dp))
+            }
+        }
+        TileName(if (open || full) lv.name else "Locked", c.lichen)
         MedalPips(medal, pip = 7.dp)
     }
 }
+
+/**
+ * A level name that shrinks, down to three quarters of labelSmall, so a word like "Causeway" fits a phone
+ * tile whole instead of breaking mid-word or ellipsizing (full-game tiles now show their names to free
+ * players). Layout passes that still overflow are not drawn, so the shrinking never flickers on screen.
+ * At very large font scales a name can still be cut; the tile's content description always names it.
+ */
+@Composable
+private fun TileName(text: String, color: androidx.compose.ui.graphics.Color) {
+    val base = MaterialTheme.typography.labelSmall
+    var scale by remember(text, base) { mutableFloatStateOf(1f) }
+    var fits by remember(text, base) { mutableStateOf(false) }
+    Text(
+        text,
+        style = base.copy(
+            fontSize = base.fontSize * scale,
+            lineHeight = if (base.lineHeight.isSp) base.lineHeight * scale else base.lineHeight,
+        ),
+        color = color,
+        maxLines = 2,
+        overflow = TextOverflow.Ellipsis,
+        textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+        modifier = Modifier.drawWithContent { if (fits) drawContent() },
+        onTextLayout = { result ->
+            // Android breaks a word wider than the tile mid-word and still reports no overflow, so a line
+            // that ends inside a word counts as overflow too.
+            val splitWord = (0 until result.lineCount - 1).any { i ->
+                val end = result.getLineEnd(i)
+                end in 1 until text.length && !text[end - 1].isWhitespace() && !text[end].isWhitespace()
+            }
+            if ((result.hasVisualOverflow || splitWord) && scale > MIN_NAME_SCALE) {
+                scale = (scale - 0.05f).coerceAtLeast(MIN_NAME_SCALE)
+            } else {
+                fits = true
+            }
+        },
+    )
+}
+
+private const val MIN_NAME_SCALE = 0.75f
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -216,6 +278,7 @@ private fun BriefingSheet(
     difficulty: String,
     row: com.mohdshayan.snarewall.game.LevelProgressRow?,
     resume: RunSave?,
+    owned: Boolean,
     onDismiss: () -> Unit,
     onStart: (fresh: Boolean) -> Unit,
 ) {
@@ -290,8 +353,11 @@ private fun BriefingSheet(
                 PrimaryButton("Start level", onClick = { onStart(true) }, modifier = Modifier.fillMaxWidth())
                 if (resumeElsewhere) {
                     val where = if (resume!!.dailyKey != null) "today's map" else "level ${resume.levelId}"
+                    // A saved run in the full game can only be kept by exporting it, so the warning says so.
+                    val inFullGame = resume.dailyKey == null && !Access.levelOpen(resume.levelId, owned)
                     Text(
-                        "Starting replaces your saved run on $where.",
+                        if (inFullGame) "Starting replaces your saved run on $where, which is in the full game. Export your save first to keep a copy."
+                        else "Starting replaces your saved run on $where.",
                         style = MaterialTheme.typography.bodySmall,
                         color = c.lichen,
                         modifier = Modifier.padding(top = 8.dp),

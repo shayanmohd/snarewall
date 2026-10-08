@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data-extraction-rules>
-    <cloud-backup />
-    <device-transfer />
+    <!-- Everything travels as before, the prior-buyer latch (shared_prefs/legacy_owner.xml) with the
+         database, except this phone's copy of Google Play's answer about the full game: the new phone
+         reads that back from Google Play, never from the old one. -->
+    <cloud-backup>
+        <exclude domain="file" path="datastore/entitlement.preferences_pb" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="file" path="datastore/entitlement.preferences_pb" />
+    </device-transfer>
 </data-extraction-rules>

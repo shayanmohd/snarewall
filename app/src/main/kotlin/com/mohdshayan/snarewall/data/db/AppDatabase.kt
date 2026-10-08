@@ -104,6 +104,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun progressDao(): ProgressDao
 
     companion object {
+        /** Also read by LegacyOwner: 1.0.0 created this file on its first launch. */
+        const val NAME = "snarewall.db"
+
         @Volatile
         private var instance: AppDatabase? = null
 
@@ -112,7 +115,7 @@ abstract class AppDatabase : RoomDatabase() {
                 instance ?: Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "snarewall.db",
+                    NAME,
                 ).build().also { instance = it }
             }
     }

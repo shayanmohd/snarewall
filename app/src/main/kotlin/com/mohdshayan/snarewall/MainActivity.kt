@@ -36,4 +36,11 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        // Google's advice: query purchases on every resume, so a pending payment that completed, a promo
+        // code redeemed in the Play Store, a refund or a purchase on another phone shows up without a restart.
+        ServiceLocator.unlock.refresh()
+    }
 }

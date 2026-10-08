@@ -13,8 +13,10 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -26,6 +28,7 @@ sealed interface LevelsState {
         val rows: List<LevelProgressRow>,
         val difficulty: String,
         val resume: RunSave?,
+        val owned: Boolean,
     ) : LevelsState
 }
 
@@ -36,8 +39,9 @@ class LevelsViewModel(app: Application) : AndroidViewModel(app) {
 
     val state: StateFlow<LevelsState> = combine(
         contentFlow, ServiceLocator.progress.progress, prefs.settings, ServiceLocator.progress.resume,
-    ) { content, rows, settings, resume ->
-        LevelsState.Ready(content, rows, settings.lastDifficulty, resume?.let { SaveCodec.decodeRun(it.stateJson) }) as LevelsState
+        ServiceLocator.unlock.state.map { it.unlocked }.distinctUntilChanged(),
+    ) { content, rows, settings, resume, owned ->
+        LevelsState.Ready(content, rows, settings.lastDifficulty, resume?.let { SaveCodec.decodeRun(it.stateJson) }, owned) as LevelsState
     }
         .catch { emit(LevelsState.Error) }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), LevelsState.Loading)

@@ -43,9 +43,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -54,6 +56,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mohdshayan.snarewall.R
+import com.mohdshayan.snarewall.billing.UnlockState
 import com.mohdshayan.snarewall.data.SaveTransfer
 import com.mohdshayan.snarewall.data.prefs.Settings
 import com.mohdshayan.snarewall.di.ServiceLocator
@@ -62,6 +65,11 @@ import com.mohdshayan.snarewall.ui.components.ScreenHeader
 import com.mohdshayan.snarewall.ui.components.SkeletonBlock
 import com.mohdshayan.snarewall.ui.theme.LocalSnareColors
 import com.mohdshayan.snarewall.ui.theme.RadiusMd
+import com.mohdshayan.snarewall.ui.unlock.FullGameStatus
+import com.mohdshayan.snarewall.ui.unlock.UnlockNote
+import com.mohdshayan.snarewall.ui.unlock.UnlockRules
+import com.mohdshayan.snarewall.ui.unlock.UnlockText
+import com.mohdshayan.snarewall.ui.unlock.emailUs
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -113,14 +121,39 @@ class SettingsViewModel(app: Application) : AndroidViewModel(app) {
             status = "That file is not a Snarewall save." to true
         }
     }
+
+    val unlock: StateFlow<UnlockState> = ServiceLocator.unlock.state
+
+    /** The result line under the Full game section, from Restore purchase or Email us. */
+    var fullGameMessage by mutableStateOf(UnlockNote.NONE)
+
+    /** Restore purchase is waiting for Google Play, which can take up to UnlockRepository.SYNC_TIMEOUT_MS. */
+    var restoring by mutableStateOf(false)
+        private set
+
+    fun restore() {
+        if (restoring) return
+        restoring = true
+        fullGameMessage = UnlockNote.NONE
+        viewModelScope.launch {
+            try {
+                val answered = ServiceLocator.unlock.syncNow()
+                fullGameMessage = UnlockRules.restoreNote(answered, ServiceLocator.unlock.state.value)
+            } finally {
+                restoring = false
+            }
+        }
+    }
 }
 
 @Composable
-fun SettingsScreen(onBack: () -> Unit, onLicences: () -> Unit, vm: SettingsViewModel = viewModel()) {
+fun SettingsScreen(onBack: () -> Unit, onLicences: () -> Unit, onUnlock: () -> Unit, vm: SettingsViewModel = viewModel()) {
     val s by vm.settings.collectAsStateWithLifecycle()
+    val unlock by vm.unlock.collectAsStateWithLifecycle()
     val c = LocalSnareColors.current
     val context = LocalContext.current
     val policyUrl = stringResource(R.string.privacy_policy_url)
+    val address = stringResource(R.string.support_email)
     val importer = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> if (uri != null) vm.read(uri) }
 
     Column(Modifier.fillMaxSize()) {
@@ -190,6 +223,37 @@ fun SettingsScreen(onBack: () -> Unit, onLicences: () -> Unit, vm: SettingsViewM
             ActionRow("Import save") { importer.launch(arrayOf("application/json", "text/plain", "application/octet-stream")) }
             vm.status?.let { (text, warn) ->
                 Text(text, style = MaterialTheme.typography.bodyMedium, color = if (warn) c.route else c.emerald, modifier = Modifier.padding(top = 8.dp))
+            }
+
+            // Owners see the status line only; free and pending players can open the Unlock screen and restore.
+            Section("Full game")
+            val fullGame = UnlockRules.status(unlock)
+            Text(UnlockText.status(fullGame), style = MaterialTheme.typography.bodyMedium, color = c.lichen, modifier = Modifier.widthIn(max = 520.dp))
+            if (fullGame == FullGameStatus.FREE || fullGame == FullGameStatus.PENDING) {
+                ActionRow(UnlockText.SEE_FULL_GAME) { onUnlock() }
+                Divider()
+                ActionRow(UnlockText.RESTORE) { vm.restore() }
+            }
+            if (fullGame == FullGameStatus.FREE) {
+                Divider()
+                Text(
+                    UnlockText.SETTINGS_PRIOR_PRINT,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = c.lichen,
+                    modifier = Modifier.widthIn(max = 520.dp).padding(top = 12.dp),
+                )
+                ActionRow(UnlockText.EMAIL_US) { if (!emailUs(context, address)) vm.fullGameMessage = UnlockNote.NO_EMAIL }
+            }
+            // One line: Checking while Restore purchase waits, then its result in the same place, read out by TalkBack.
+            val fullGameLine = if (vm.restoring) UnlockText.RESTORING to c.lichen
+            else UnlockText.note(vm.fullGameMessage, address)?.let { it to if (vm.fullGameMessage == UnlockNote.RESTORED) c.emerald else c.route }
+            fullGameLine?.let { (text, color) ->
+                Text(
+                    text,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = color,
+                    modifier = Modifier.widthIn(max = 520.dp).padding(top = 8.dp).semantics { liveRegion = LiveRegionMode.Polite },
+                )
             }
 
             Section("About")

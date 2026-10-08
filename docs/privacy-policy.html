@@ -22,7 +22,7 @@
 </head>
 <body>
 <h1>Snarewall Privacy Policy</h1>
-<p class="meta">Last updated 17 September 2026</p>
+<p class="meta">Last updated 2 October 2026</p>
 
 <p>Snarewall is published by SocialSure Private Limited. This policy explains what the app does with your
 information.</p>
@@ -34,15 +34,18 @@ settings) is stored only in the app's private storage on your device. It is remo
 app's storage or uninstall it. Snarewall allows Android backup, so your Android device backup (and a transfer to a new phone) may include it; that backup is run by Android under your Google account settings, not by us.
 You can copy it out yourself with Settings, Export save, which hands one file to the share sheet for
 the app you choose, and bring it back with Import save.</p>
+<p>If you buy the full game, the payment is made in Google Play, not in Snarewall. Google Play tells the app on your phone whether your Google account owns the full game, and Snarewall keeps that answer only on your phone. If you had Snarewall before it became free to start, the app notes that on your phone too, and nowhere else apart from your Android backup if that is on.</p>
 
 <h2>Permissions</h2>
 <p>Snarewall asks for no permission that needs your approval, and it has no internet permission, so the
-app itself cannot send your data off the device. The one permission in its manifest is added automatically
-by AndroidX to keep the app's own broadcasts private; only Snarewall can hold it and it reaches no data of
-yours. You can confirm this on the Play Store listing under "App permissions".</p>
+app itself cannot send your data off the device. Its manifest lists two permissions, both granted at install
+without a prompt. Google Play billing (com.android.vending.BILLING) lets the app open Google Play's purchase
+screen for the full game and ask Google Play whether you own it. The second is added automatically by AndroidX
+to keep the app's own broadcasts private; only Snarewall can hold it and it reaches no data of yours. You can
+confirm this on the Play Store listing under "App permissions".</p>
 
 <h2>Third parties</h2>
-<p>Snarewall contains no advertising, no third-party analytics and no third-party SDKs that collect data. It includes Google Play's in-app review library, which may show Google Play's rating dialog after you clear three levels; that dialog is run by the Play Store app, and Snarewall never sees what you write.</p>
+<p>Snarewall contains no advertising, no third-party analytics and no third-party SDKs that collect data. It includes two Google Play libraries. The in-app review library may show Google Play's rating dialog after you clear three levels; that dialog is run by the Play Store app, and Snarewall never sees what you write. The billing library talks to the Play Store app on your phone to show the purchase screen and to check whether you own the full game. Google Play handles the payment under Google's own privacy policy, and Snarewall never sees your payment details. The billing library also contains Google's logging of how the library is used, which cannot send anything because Snarewall has no internet permission.</p>
 
 <h2>Children</h2>
 <p>Because it collects no data at all, it collects no data from children.</p>

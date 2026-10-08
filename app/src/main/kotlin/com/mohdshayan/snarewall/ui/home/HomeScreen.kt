@@ -63,6 +63,7 @@ fun HomeScreen(
     onLevels: () -> Unit,
     onDaily: () -> Unit,
     onSettings: () -> Unit,
+    onUnlock: () -> Unit,
     vm: HomeViewModel = viewModel(),
 ) {
     val state by vm.state.collectAsStateWithLifecycle()
@@ -137,10 +138,15 @@ fun HomeScreen(
                     color = c.lichen,
                 )
                 Spacer(Modifier.height(28.dp))
-                HomeRow("Levels", if (s.firstLaunch) "15 levels in 3 regions" else "${s.cleared} of 15 cleared, ${s.medals} ${if (s.medals == 1) "medal" else "medals"}", onLevels)
+                val firstNote = if (s.owned) "15 levels in 3 regions" else "15 levels in 3 regions, the first 5 free"
+                HomeRow("Levels", if (s.firstLaunch) firstNote else "${s.cleared} of 15 cleared, ${s.medals} ${if (s.medals == 1) "medal" else "medals"}", onLevels)
                 HorizontalDivider(color = c.lichen.copy(alpha = 0.22f))
                 HomeRow("Daily map", "A new board every day", onDaily)
                 HorizontalDivider(color = c.lichen.copy(alpha = 0.22f))
+                if (!s.owned) {
+                    HomeRow("Full game", "Levels 6 to 15, one purchase", onUnlock)
+                    HorizontalDivider(color = c.lichen.copy(alpha = 0.22f))
+                }
                 HomeRow("Settings", "Sound, theme, save file", onSettings)
             }
         }

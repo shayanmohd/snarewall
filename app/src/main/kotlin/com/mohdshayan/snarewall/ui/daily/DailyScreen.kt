@@ -39,6 +39,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mohdshayan.snarewall.di.ServiceLocator
+import com.mohdshayan.snarewall.game.Access
 import com.mohdshayan.snarewall.game.DailyGenerator
 import com.mohdshayan.snarewall.game.DailyMap
 import com.mohdshayan.snarewall.game.DailyScoreRow
@@ -61,8 +62,10 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -71,25 +74,37 @@ import java.util.Locale
 sealed interface DailyState {
     data object Loading : DailyState
     data object Error : DailyState
-    data class Ready(val map: DailyMap, val regionName: String, val today: DailyScoreRow?, val history: List<DailyScoreRow>, val resumeWave: Int?, val otherRun: String?) : DailyState
+    /** [otherRunInFullGame]: the saved run [otherRun] names is a level in the full game, which only an export keeps. */
+    data class Ready(val map: DailyMap, val regionName: String, val today: DailyScoreRow?, val history: List<DailyScoreRow>, val resumeWave: Int?, val otherRun: String?, val otherRunInFullGame: Boolean) : DailyState
 }
 
 class DailyViewModel(app: Application) : AndroidViewModel(app) {
     private val retry = MutableStateFlow(0)
     // Retry restarts the whole pipeline, because catch ends the flow it guards.
     @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
-    val state: StateFlow<DailyState> = retry.flatMapLatest { combine(ServiceLocator.progress.daily, ServiceLocator.progress.resume) { rows, resume ->
+    val state: StateFlow<DailyState> = retry.flatMapLatest { combine(
+        ServiceLocator.progress.daily, ServiceLocator.progress.resume,
+        ServiceLocator.unlock.state.map { it.unlocked }.distinctUntilChanged(),
+    ) { rows, resume, owned ->
         val key = DailyGenerator.todayKey()
         val map = DailyGenerator.generate(key)
         val content = ServiceLocator.content.load()
         val save = resume?.let { SaveCodec.decodeRun(it.stateJson) }
+        val lockedRun = save != null && save.dailyKey == null && !Access.levelOpen(save.levelId, owned)
         DailyState.Ready(
             map,
             content.regions.firstOrNull { it.id == map.region }?.name ?: "",
             rows.firstOrNull { it.dateKey == key },
             rows.filter { it.dateKey != key },
             save?.takeIf { it.dailyKey == key }?.wave,
-            save?.takeIf { it.dailyKey != key }?.let { if (it.dailyKey == null) "level ${it.levelId}" else "an earlier daily map" },
+            save?.takeIf { it.dailyKey != key }?.let {
+                when {
+                    it.dailyKey != null -> "an earlier daily map"
+                    lockedRun -> "level ${it.levelId}, which is in the full game"
+                    else -> "level ${it.levelId}"
+                }
+            },
+            lockedRun,
         ) as DailyState
     }
         .flowOn(kotlinx.coroutines.Dispatchers.IO)
@@ -154,7 +169,8 @@ fun DailyScreen(onBack: () -> Unit, onPlay: (Board) -> Unit, vm: DailyViewModel 
                     PrimaryButton("Play today's map", onClick = { onPlay(Board(0, "standard", true, true, s.map.dateKey)) }, modifier = Modifier.fillMaxWidth())
                     if (s.otherRun != null) {
                         Text(
-                            "Starting replaces your saved run on ${s.otherRun}.",
+                            "Starting replaces your saved run on ${s.otherRun}." +
+                                if (s.otherRunInFullGame) " Export your save first to keep a copy." else "",
                             style = MaterialTheme.typography.bodySmall,
                             color = c.lichen,
                             modifier = Modifier.padding(top = 8.dp),

@@ -15,7 +15,8 @@ class ShotSeeds {
     private val out = File("build/shot-seeds")
 
     private fun progress(): List<LevelProgressRow> {
-        val medals = listOf("gold", "gold", "silver", "gold", "bronze", "silver", "silver", "gold", "bronze", "silver")
+        // Chalk Downs only, so no locked full-game tile carries a medal a free player cannot have.
+        val medals = listOf("gold", "gold", "silver", "gold", "bronze")
         val day = 86_400_000L
         val base = 1_788_900_000_000L - 12 * day
         return medals.mapIndexed { i, m ->
@@ -152,12 +153,12 @@ class ShotSeeds {
     @Test
     fun seeds() {
         assumeTrue(File("shots.on").exists())
-        // 1: Salt Mine, a maze under way with coin left for more walls.
+        // 1: Chalk Downs, a maze under way with coin left for more walls.
         var best: Triple<Sim, Int, Int>? = null
         // Prefixes: the reference run, then a light thin maze played wave by wave, both through the real Sim.
-        val prefixes = listOf(2, 1, 3, 4).map { { reach(7, it, withBuild = false) } } + listOf(1, 2, 3).map { w ->
+        val prefixes = listOf(2, 1, 3, 4).map { { reach(4, it, withBuild = false) } } + listOf(1, 2, 3).map { w ->
             {
-                val sim = Sim(RunSpec.forLevel(content.level(7)!!, Difficulty.STANDARD), content)
+                val sim = Sim(RunSpec.forLevel(content.level(4)!!, Difficulty.STANDARD), content)
                 val bot = Bot(sim, thick = false, wallShare = 0.2f)
                 while (sim.waveIndex < w) { bot.playBuildPhase(); sim.sendWave(); TestContent.runWave(sim); check(sim.phase == Phase.BUILD) }
                 sim
@@ -192,7 +193,7 @@ class ShotSeeds {
         // The reference maze itself, when the row template does not fit it.
         for (w1 in 1..6) {
             if (best != null) break
-            val trial = reach(7, w1, withBuild = false)
+            val trial = reach(4, w1, withBuild = false)
             val base = trial.field.dist[trial.layout.gates[0]]
             val astar = AStar(trial.layout)
             val path = IntArray(Grid.N)
@@ -208,7 +209,7 @@ class ShotSeeds {
         for (y in 0 until 12) println("row " + (0 until 8).joinToString("") { x -> val i = Grid.idx(x, y); when { i == ghost -> "g"; s1.layout.obstacle[i] -> "#"; s1.walls[i] -> "W"; else -> "." } })
         write("seed-1-maze", s1.snapshot())
         // 2: pusher into deadfall, live link on the route.
-        val s2 = listOf(8 to 3, 8 to 2, 8 to 1, 4 to 3, 3 to 3).firstNotNullOf { (id, w) ->
+        val s2 = listOf(4 to 3, 3 to 3).firstNotNullOf { (id, w) ->
             val sim = reach(id, w, withBuild = false)
             if (addPushDeadfall(sim)) sim.also { println("combo on level $id wave ${w + 1}") } else null
         }

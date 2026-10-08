@@ -112,6 +112,17 @@ class SaveAndDailyTest {
     }
 
     @Test
+    fun aSaveFileCannotCarryTheUnlock() {
+        // The prior-buyer latch (legacy_owner: decided, owner) and the Play copy (entitlement: unlocked) are
+        // not settings, so an imported save can neither carry nor grant the full game.
+        val unlockKeys = mapOf(
+            "decided" to "true", "owner" to "true", "unlocked" to "true",
+            "legacy_owner" to "true", "legacy_checked" to "true", "play_unlock" to "true",
+        )
+        assertEquals(emptyMap<String, String>(), SaveCodec.sanitizeSettings(unlockKeys))
+    }
+
+    @Test
     fun noEmOrEnDashAnywhereInShippedText() {
         val roots = listOf(File("src/main"), File("../store"), File("../docs"), File("../README.md"))
         val bad = ArrayList<String>()

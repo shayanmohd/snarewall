@@ -21,13 +21,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.mohdshayan.snarewall.di.ServiceLocator
+import com.mohdshayan.snarewall.game.Access
 import com.mohdshayan.snarewall.game.DailyGenerator
 import com.mohdshayan.snarewall.game.Scoring
 import com.mohdshayan.snarewall.ui.components.MedalPips
@@ -44,15 +47,20 @@ import kotlinx.coroutines.flow.first
 private const val LEVEL_COUNT = 15
 
 @Composable
-fun ResultScreen(args: Result, onPlay: (Board) -> Unit, onHome: () -> Unit, onLevels: () -> Unit) {
+fun ResultScreen(args: Result, onPlay: (Board) -> Unit, onHome: () -> Unit, onLevels: () -> Unit, onUnlock: () -> Unit) {
     val c = LocalSnareColors.current
     val context = LocalContext.current
     val medal = Scoring.Medal.entries.firstOrNull { it.id == args.medal } ?: Scoring.Medal.NONE
     val day = args.dateKey ?: DailyGenerator.todayKey()
+    val unlock by ServiceLocator.unlock.state.collectAsStateWithLifecycle()
+    // A clear whose next level is in the full game: the line, See the full game and Play again.
+    val nextLocked = { owned: Boolean -> !args.daily && args.won && args.levelId < LEVEL_COUNT && !Access.levelOpen(args.levelId + 1, owned) }
 
-    // Review prompt: once, after the third level clear, never after a loss or on a daily run.
+    // Review prompt: once, after the third level clear, never after a loss or on a daily run, and never
+    // after a lock, so it still lands inside the free tier.
     LaunchedEffect(args) {
         if (args.daily || !args.won) return@LaunchedEffect
+        if (nextLocked(ServiceLocator.unlock.state.value.unlocked)) return@LaunchedEffect
         val prefs = ServiceLocator.appPrefs
         val s = prefs.settings.first()
         if (s.levelsClearedTotal >= 3 && !s.reviewPrompted) {
@@ -117,6 +125,16 @@ fun ResultScreen(args: Result, onPlay: (Board) -> Unit, onHome: () -> Unit, onLe
         }
         HorizontalDivider(color = c.lichen.copy(alpha = 0.22f))
         Spacer(Modifier.height(28.dp))
+        if (nextLocked(unlock.unlocked)) {
+            Text(
+                if (args.levelId == Access.FREE_LAST_LEVEL) "Chalk Downs cleared. Salt Mine and Fen Causeway are in the full game."
+                else "Level ${args.levelId + 1} is in the full game.",
+                style = MaterialTheme.typography.bodyMedium,
+                color = c.lichen,
+                modifier = Modifier.widthIn(max = 520.dp),
+            )
+            Spacer(Modifier.height(16.dp))
+        }
         Column(Modifier.widthIn(max = 480.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             when {
                 args.daily -> {
@@ -129,6 +147,10 @@ fun ResultScreen(args: Result, onPlay: (Board) -> Unit, onHome: () -> Unit, onLe
                         context.startActivity(Intent.createChooser(send, "Share result"))
                     }, modifier = Modifier.fillMaxWidth())
                     QuietButton("Try again", onClick = { onPlay(Board(0, "standard", true, true, day)) }, modifier = Modifier.fillMaxWidth())
+                }
+                nextLocked(unlock.unlocked) -> {
+                    PrimaryButton("See the full game", onClick = onUnlock, modifier = Modifier.fillMaxWidth())
+                    QuietButton("Play again", onClick = { onPlay(Board(args.levelId, args.difficulty, false, true)) }, modifier = Modifier.fillMaxWidth())
                 }
                 args.won && args.levelId < LEVEL_COUNT -> {
                     PrimaryButton("Next level", onClick = { onPlay(Board(args.levelId + 1, args.difficulty, false, true)) }, modifier = Modifier.fillMaxWidth())

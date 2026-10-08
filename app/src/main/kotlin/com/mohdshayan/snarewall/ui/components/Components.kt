@@ -28,7 +28,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,8 +53,10 @@ import com.mohdshayan.snarewall.game.TrapKind
 import com.mohdshayan.snarewall.ui.theme.LocalSnareColors
 import com.mohdshayan.snarewall.ui.theme.RadiusSm
 
+/** [fallback], when given, replaces a [label] that does not fit on one line, so no part of it is cut off. */
 @Composable
-fun PrimaryButton(label: String, onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true) {
+fun PrimaryButton(label: String, onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true, fallback: String? = null) {
+    var tooLong by remember(label) { mutableStateOf(false) }
     Button(
         onClick = onClick,
         enabled = enabled,
@@ -61,7 +66,14 @@ fun PrimaryButton(label: String, onClick: () -> Unit, modifier: Modifier = Modif
             disabledContainerColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.18f),
             disabledContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
         ),
-    ) { Text(label, style = MaterialTheme.typography.labelLarge, maxLines = 1) }
+    ) {
+        Text(
+            if (tooLong && fallback != null) fallback else label,
+            style = MaterialTheme.typography.labelLarge,
+            maxLines = 1,
+            onTextLayout = { if (fallback != null && it.hasVisualOverflow) tooLong = true },
+        )
+    }
 }
 
 @Composable

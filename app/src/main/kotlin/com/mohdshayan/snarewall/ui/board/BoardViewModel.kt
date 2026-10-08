@@ -140,10 +140,6 @@ class BoardViewModel(app: Application, val args: Board, savedState: SavedStateHa
     var hapticTick by mutableIntStateOf(0)
         private set
 
-    init {
-        viewModelScope.launch { load() }
-    }
-
     private suspend fun load() {
         val s = prefs.current()
         speed = s.defaultSpeed
@@ -649,6 +645,14 @@ class BoardViewModel(app: Application, val args: Board, savedState: SavedStateHa
     }
 
     private var recording = false
+
+    // Keep this init block below every property. viewModelScope runs on Main.immediate: if every withContext in
+    // load() finishes before the main thread suspends, load() reaches saveBoundary() inside the constructor,
+    // where a property with a non-default initializer declared below this block (saveDispatcher) would still
+    // be null. The 1.1.0 pilot smoke test saw that NullPointerException once on the shipped 1.0.0.
+    init {
+        viewModelScope.launch { load() }
+    }
 
     fun describe(): String {
         val s = sim ?: return "Loading the board"

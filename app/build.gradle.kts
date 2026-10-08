@@ -28,8 +28,8 @@ android {
         applicationId = "com.mohdshayan.snarewall"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.1.0"
     }
 
     signingConfigs {
@@ -89,6 +89,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.google.play.review.ktx)
+    implementation(libs.android.billingclient)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.kotlinx.coroutines.android)
@@ -101,4 +102,10 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
+
+    constraints {
+        implementation(libs.androidx.fragment) {
+            because("review-ktx, play-services-basement and appcompat 1.1.0 pin fragment 1.1.0, which Play reports as outdated")
+        }
+    }
 }
